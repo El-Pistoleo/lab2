@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream> //pour les string
+#include <iostream> //pour l'utilisation des string
 
 using namespace std;
 
