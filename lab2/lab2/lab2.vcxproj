@@ -115,10 +115,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BoiteCarton.h" />
+    <ClInclude Include="BouteilleBiere.h" />
+    <ClInclude Include="Chaise.h" />
     <ClInclude Include="Dechet.h" />
+    <ClInclude Include="DechetMalConcu.h" />
+    <ClInclude Include="FeuillePapier.h" />
+    <ClInclude Include="PlanteVerte.h" />
+    <ClInclude Include="QuelqueChose.h" />
+    <ClInclude Include="RestantNourriture.h" />
+    <ClInclude Include="SacChips.h" />
+    <ClInclude Include="VerreCafe.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BoiteCarton.cpp" />
+    <ClCompile Include="BouteilleBiere.cpp" />
+    <ClCompile Include="Chaise.cpp" />
     <ClCompile Include="Dechet.cpp" />
+    <ClCompile Include="DechetMalConcu.cpp" />
+    <ClCompile Include="FeuillePapier.cpp" />
+    <ClCompile Include="PlanteVerte.cpp" />
+    <ClCompile Include="QuelqueChose.cpp" />
+    <ClCompile Include="RestantNourriture.cpp" />
+    <ClCompile Include="SacChips.cpp" />
+    <ClCompile Include="VerreCafe.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
