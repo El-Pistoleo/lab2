@@ -117,6 +117,10 @@
   <ItemGroup>
     <ClInclude Include="BoiteCarton.h" />
     <ClInclude Include="BouteilleBiere.h" />
+    <ClInclude Include="Camion.h" />
+    <ClInclude Include="CamionBleu.h" />
+    <ClInclude Include="CamionBrun.h" />
+    <ClInclude Include="CamionVert.h" />
     <ClInclude Include="Chaise.h" />
     <ClInclude Include="ChargementDechet.h" />
     <ClInclude Include="Dechet.h" />
@@ -137,6 +141,10 @@
   <ItemGroup>
     <ClCompile Include="BoiteCarton.cpp" />
     <ClCompile Include="BouteilleBiere.cpp" />
+    <ClCompile Include="Camion.cpp" />
+    <ClCompile Include="CamionBleu.cpp" />
+    <ClCompile Include="CamionBrun.cpp" />
+    <ClCompile Include="CamionVert.cpp" />
     <ClCompile Include="Chaise.cpp" />
     <ClCompile Include="ChargementDechet.cpp" />
     <ClCompile Include="Dechet.cpp" />
