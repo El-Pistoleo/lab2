@@ -125,6 +125,7 @@
     <ClInclude Include="DechetTraiteCompostable.h" />
     <ClInclude Include="DechetTraiteNonRecyclable.h" />
     <ClInclude Include="DechetTraiteRecyclable.h" />
+    <ClInclude Include="Depot.h" />
     <ClInclude Include="FeuillePapier.h" />
     <ClInclude Include="PlanteVerte.h" />
     <ClInclude Include="QuelqueChose.h" />
@@ -144,6 +145,7 @@
     <ClCompile Include="DechetTraiteCompostable.cpp" />
     <ClCompile Include="DechetTraiteNonRecyclable.cpp" />
     <ClCompile Include="DechetTraiteRecyclable.cpp" />
+    <ClCompile Include="Depot.cpp" />
     <ClCompile Include="FeuillePapier.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlanteVerte.cpp" />

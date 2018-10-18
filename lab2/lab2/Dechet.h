@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream> //pour l'utilisation des string
+#include <ostream>
 
 using namespace std;
 
@@ -17,8 +18,9 @@ public:
 	int getPurete();
 	bool estEnStyromousse();
 	bool estRigide();
-	friend ostream& operator << (ostream& out, const Dechet& dechet);
+	friend ostream& operator<< (ostream& out, const Dechet&);
 
+	
 protected:
 	Dechet(int poids, string description, int type, string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide);
 	Dechet(int poids, string description);
@@ -34,6 +36,8 @@ private:
 	bool styromousse;
 	bool rigide;
 	static int idCourant;
+	
+
 
 	void setPoids(int poids);
 	void setDescription(string description);
@@ -43,3 +47,8 @@ private:
 
 	enum Materiel { CARTON, BOUTEILLE, PLASTIQUE, METAL, BOIS, NOURRITURE, VEGETAL, PAPIER, STYROFOAM, INCONNU };
 };
+
+ostream& operator<<(ostream& out, const Dechet& dechet) {
+		out << "--------------------------------" << endl;
+		return out;
+	}
