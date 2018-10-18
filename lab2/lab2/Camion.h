@@ -1,4 +1,6 @@
 #pragma once
+#include "DechetTraite.h"
+
 class Camion
 {
 public:

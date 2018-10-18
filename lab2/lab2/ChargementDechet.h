@@ -1,4 +1,5 @@
 #pragma once
+#include "Dechet.h"
 class ChargementDechet
 {
 public:

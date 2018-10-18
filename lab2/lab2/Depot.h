@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
 #include <ostream>
-
+#include "CamionBleu.h"
+#include "CamionBrun.h"
+#include "CamionVert.h"
 using namespace std;
 
 class Depot
@@ -25,6 +27,6 @@ private:
 };
 
 ostream& operator<<(ostream& out, const Depot& depot) {
-	out << "--------------------------------" << endl;
+	out << "-- DEPOT --" << endl;
 	return out;
 }

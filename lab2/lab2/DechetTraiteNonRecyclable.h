@@ -1,4 +1,6 @@
 #pragma once
+#include"Dechet.h"
+
 class DechetTraiteNonRecyclable
 {
 public:

@@ -1,4 +1,5 @@
 #pragma once
+#include "ChargementDechet.h"
 class UQAC
 {
 public:

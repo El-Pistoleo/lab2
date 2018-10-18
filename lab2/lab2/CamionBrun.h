@@ -1,9 +1,11 @@
 #pragma once
+#include "DechetTraiteCompostable.h"
+
 class CamionBrun
 {
 public:
 	CamionBrun();
 	~CamionBrun();
-	bool ajouterDechet(dechetTraiteCompostable* dechetTraite);
+	bool ajouterDechet(DechetTraiteCompostable* dechetTraite);
 };
 
