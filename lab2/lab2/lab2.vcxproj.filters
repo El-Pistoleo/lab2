@@ -54,6 +54,9 @@
     <ClInclude Include="ChargementDechet.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="DechetTraite.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dechet.cpp">
@@ -96,6 +99,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="DechetTraite.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
