@@ -123,6 +123,7 @@
     <ClInclude Include="CamionVert.h" />
     <ClInclude Include="Chaise.h" />
     <ClInclude Include="ChargementDechet.h" />
+    <ClInclude Include="Compteur.h" />
     <ClInclude Include="CreationDechetTraiteCompostable.h" />
     <ClInclude Include="CreationDechetTraiteNonRecyclable.h" />
     <ClInclude Include="CreationDechetTraiteRecyclable.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="CamionVert.cpp" />
     <ClCompile Include="Chaise.cpp" />
     <ClCompile Include="ChargementDechet.cpp" />
+    <ClCompile Include="Compteur.cpp" />
     <ClCompile Include="CreationDechetTraiteCompostable.cpp" />
     <ClCompile Include="CreationDechetTraiteNonRecyclable.cpp" />
     <ClCompile Include="CreationDechetTraiteRecyclable.cpp" />

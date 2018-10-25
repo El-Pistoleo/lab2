@@ -123,6 +123,9 @@
     <ClInclude Include="UsineTraitement.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Compteur.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dechet.cpp">
@@ -234,6 +237,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="UsineTraitement.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Compteur.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

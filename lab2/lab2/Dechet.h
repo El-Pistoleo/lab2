@@ -6,24 +6,26 @@ using namespace std;
 
 class Dechet
 {
-public:
-	Dechet();
-	~Dechet();
-	int getPoids();
-	int getId();
-	string getDescription();
-	int getType();
-	string getCouleur();
-	Materiel getMateriel();
-	int getPurete();
-	bool estEnStyromousse();
-	bool estRigide();
-	friend ostream& operator<< (ostream& out, const Dechet&);
-
-	
 protected:
 	Dechet(int poids, string description, int type, string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide);
 	Dechet(int poids, string description);
+	enum Materiel { CARTON, BOUTEILLE, PLASTIQUE, METAL, BOIS, NOURRITURE, VEGETAL, PAPIER, STYROFOAM, INCONNU };
+
+public:
+	Dechet();
+	~Dechet();
+	int getPoids()			{ return poids; };
+	int getId()				{ return id; };
+	string getDescription() { return description; };
+	int getType()			{ return type; };
+	string getCouleur()		{ return couleur; };
+	Materiel getMateriel()	{ return materiel; };
+	int getPurete()			{ return purete; };
+	bool estEnStyromousse() { return styromousse; };
+	bool estRigide()		{ return right; };
+	friend ostream& operator<< (ostream& out, const Dechet&);
+
+	
 
 private:
 	int poids;
@@ -38,14 +40,11 @@ private:
 	static int idCourant;
 	
 
-
-	void setPoids(int poids);
-	void setDescription(string description);
-	void setType(int type);
-	void setClouleur(string couleur);
-	void setPurete(int purete);
-
-	enum Materiel { CARTON, BOUTEILLE, PLASTIQUE, METAL, BOIS, NOURRITURE, VEGETAL, PAPIER, STYROFOAM, INCONNU };
+	void setPoids(int poids) { this->poids= poids; };
+	void setDescription(string description) { this->description = description; };
+	void setType(int type) { this->type = type; };
+	void setClouleur(string couleur) { this->couleur = couleur; };
+	void setPurete(int purete) { this->purete = purete; };
 };
 
 ostream& operator<<(ostream& out, const Dechet& dechet) {

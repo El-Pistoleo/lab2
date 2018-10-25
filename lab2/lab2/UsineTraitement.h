@@ -12,7 +12,14 @@ public:
 	UsineTraitement();
 	~UsineTraitement();
 	void chargerOperations(SequenceOperations* sequenceOperation);
-	void demarrerOperations(ChargementDechet* chargement);
+	void demarrerTraitements(ChargementDechet* chargement);
+
+	class Log
+	{
+		void i(string info);
+		void i(Dechet const& dechet);
+		void i(Depot const& depot);
+	};
 
 private:
 	void preOperation();
@@ -29,4 +36,3 @@ private:
 	CamionBrun* camionBrun;
 
 };
-
