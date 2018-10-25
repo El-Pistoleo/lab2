@@ -7,9 +7,10 @@ using namespace std;
 class Dechet
 {
 protected:
+	enum Materiel { CARTON, BOUTEILLE, PLASTIQUE, METAL, BOIS, NOURRITURE, VEGETAL, PAPIER, STYROFOAM, INCONNU };
 	Dechet(int poids, string description, int type, string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide);
 	Dechet(int poids, string description);
-	enum Materiel { CARTON, BOUTEILLE, PLASTIQUE, METAL, BOIS, NOURRITURE, VEGETAL, PAPIER, STYROFOAM, INCONNU };
+	
 
 public:
 	Dechet();
@@ -48,6 +49,6 @@ private:
 };
 
 ostream& operator<<(ostream& out, const Dechet& dechet) {
-		out << "--------------------------------" << endl;
+		out << "" << endl;
 		return out;
 	}
