@@ -1,20 +1,21 @@
 #pragma once
-#include <iostream> //pour l'utilisation des string
+#include <iostream>
 #include <ostream>
+#include <string>
 
 using namespace std;
 
 class Dechet
 {
-protected:
-	enum Materiel { CARTON, BOUTEILLE, PLASTIQUE, METAL, BOIS, NOURRITURE, VEGETAL, PAPIER, STYROFOAM, INCONNU };
-	Dechet(int poids, string description, int type, string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide);
-	Dechet(int poids, string description);
+;
 	
 
 public:
 	Dechet();
 	~Dechet();
+	friend class ChargementDechet;
+	enum Materiel { CARTON, BOUTEILLE, PLASTIQUE, METAL, BOIS, NOURRITURE, VEGETAL, PAPIER, STYROFOAM, INCONNU };
+
 	int getPoids()			{ return poids; };
 	int getId()				{ return id; };
 	string getDescription() { return description; };
@@ -26,6 +27,10 @@ public:
 	bool estRigide()		{ return right; };
 	friend ostream& operator<< (ostream& out, const Dechet&);
 
+protected:
+
+	Dechet(int poids, string description, int type, string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide);
+	Dechet(int poids, string description);
 	
 
 private:

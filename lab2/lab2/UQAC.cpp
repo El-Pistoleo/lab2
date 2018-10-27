@@ -10,3 +10,8 @@ UQAC::UQAC()
 UQAC::~UQAC()
 {
 }
+
+ChargementDechet * UQAC::getChargementDechets()
+{
+	return nullptr;
+}

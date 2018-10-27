@@ -1,3 +1,14 @@
+#pragma once
+#include <iostream>
+#include <ostream>
+#include <string>
+#include "ChargementDechet.h"
+#include "UQAC.h"
+#include "UsineTraitement.h"
+#include "GenerateurSequenceOperations.h"
+#include "Compteur.h"
+
+
 int main()
 {
 	laboratoire2();
@@ -11,7 +22,7 @@ void laboratoire2()
 {
 	ChargementDechet* chargement = UQAC::getChargementDechets();
 	UsineTraitement* usineTraitement = new UsineTraitement();
-	GenerateurSequenceOperation gso;
+	GenerateurSequenceOperations gso;
 
 	usineTraitement->chargerOperations(gso.genererSequence(0, usineTraitement));
 	usineTraitement->demarrerTraitements(chargement);
