@@ -27,6 +27,6 @@ private:
 };
 
 ostream& operator<<(ostream& out, const Depot& depot) {
-	out << "-- DEPOT --" << endl;
+	out << "" << endl;
 	return out;
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include "Operation.h"
 
-class Operation4
+class Operation4 :public Operation
 {
 public:
 	Operation4();

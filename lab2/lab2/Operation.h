@@ -16,6 +16,5 @@ protected:
 private:
 	Operation* operationSuivanteTrue;
 	Operation* operationSuivanteFalse;
-
 };
 

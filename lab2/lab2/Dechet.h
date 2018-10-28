@@ -24,7 +24,7 @@ public:
 	Materiel getMateriel()	{ return materiel; };
 	int getPurete()			{ return purete; };
 	bool estEnStyromousse() { return styromousse; };
-	bool estRigide()		{ return right; };
+	bool estRigide()		{ return rigide; };
 	friend ostream& operator<< (ostream& out, const Dechet&);
 
 protected:

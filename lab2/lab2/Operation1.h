@@ -1,9 +1,10 @@
 #pragma once
 #include "Operation.h"
 
-class Operation1
+class Operation1 :public Operation
 {
 public:
+
 	Operation1();
 	Operation1(Operation* operationSuivanteTrue, Operation* operationSuivanteFalse);
 	~Operation1();

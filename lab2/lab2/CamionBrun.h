@@ -1,7 +1,8 @@
 #pragma once
 #include "DechetTraiteCompostable.h"
+#include "Camion.h"
 
-class CamionBrun
+class CamionBrun :public Camion
 {
 public:
 	CamionBrun();

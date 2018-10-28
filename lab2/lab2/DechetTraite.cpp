@@ -17,5 +17,5 @@ DechetTraite::~DechetTraite()
 
 Dechet * DechetTraite::getDechet() const
 {
-	return nullptr;
+	return dechet;
 }
