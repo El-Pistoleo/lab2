@@ -3,10 +3,11 @@
 class DechetTraite
 {
 public:
+	DechetTraite(Dechet* dechet);
 	DechetTraite();
 	~DechetTraite();
 	Dechet*  getDechet()  const;
 
 protected:
-	Dechet* : dechet;
+	Dechet* dechet;
 };
