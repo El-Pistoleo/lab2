@@ -7,7 +7,7 @@ public:
 	Operation();
 	Operation(Operation* operationSuivanteTrue, Operation* operationSuivanteFalse);
 	~Operation();
-	bool effectuerOperation(Dechet* dechet);
+	virtual bool effectuerOperation(Dechet* dechet);
 	Operation* getOperationSuivante(bool choix);
 
 protected:

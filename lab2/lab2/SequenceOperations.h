@@ -1,5 +1,7 @@
 #pragma once
 #include "Operation.h"
+#include <list> 
+#include <iterator> 
 
 class SequenceOperations
 {
@@ -11,7 +13,7 @@ public:
 	Operation* getOperationDemarrage();
 
 private:
-	Operation* listeOperation;
+	list<Operation*> listeOperations;
 	Operation* operationDemarrage;
 };
 

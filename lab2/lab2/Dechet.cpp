@@ -2,22 +2,70 @@
 
 Dechet::Dechet(int poids, string description, int type, string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide)
 {
-	this->id = idCourant;
-	this->poids = poids;
-	this->description = description;
-	this->type = type;
-	this->couleur = couleur;
+	this->id = idCourant+1;
+	setPoids(poids);
+	setDescription(description);
+	setType(type);
+	setCouleur(couleur);
 	this->materiel = materiel;
-	this->purete = purete;
+	setPurete(purete);
 	this->styromousse = styromousse;
 	this->rigide = rigide;
 }
 
 Dechet::Dechet(int poids, string description)
 {
-	this->id = idCourant;
+	this->id = idCourant+1;
 	this->poids = poids;
 	this->description = description;
+}
+
+void Dechet::setPoids(int poids)
+{
+	if (poids >= 0 && poids <= 100)
+	{
+		this->poids = poids;
+	}
+}
+
+void Dechet::setDescription(string description)
+{
+	if (description.size < 3)
+	{
+		this->description = "???";
+	}
+	else
+	{
+		this->description = description;
+	}
+}
+
+void Dechet::setType(int type)
+{
+	if (type >=0 && type <=7)
+	{
+		this->type = type;
+	}
+}
+
+void Dechet::setCouleur(string couleur)
+{
+	if (couleur != "brun" || couleur != "vert")
+	{
+		this->couleur = "inconnu";
+	}
+	else
+	{
+		this->couleur = couleur;
+	}
+}
+
+void Dechet::setPurete(int purete)
+{
+	if (purete >= 1 && purete <= 100)
+	{
+		this->purete = purete;
+	}
 }
 
 Dechet::Dechet()

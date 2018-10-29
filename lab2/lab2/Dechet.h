@@ -43,11 +43,11 @@ private:
 	static int idCourant;
 	
 
-	void setPoids(int poids) { this->poids= poids; };
-	void setDescription(string description) { this->description = description; };
-	void setType(int type) { this->type = type; };
-	void setClouleur(string couleur) { this->couleur = couleur; };
-	void setPurete(int purete) { this->purete = purete; };
+	void setPoids(int poids);
+	void setDescription(string description);
+	void setType(int type);
+	void setCouleur(string couleur);
+	void setPurete(int purete);
 };
 
 ostream& operator<<(ostream& out, const Dechet& dechet) {

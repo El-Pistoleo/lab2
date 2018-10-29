@@ -2,6 +2,8 @@
 #include <iostream>
 #include "Dechet.h"
 #include <string>
+#include <list> 
+#include <iterator> 
 
 using namespace std;
 
