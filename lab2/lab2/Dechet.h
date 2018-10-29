@@ -7,9 +7,6 @@ using namespace std;
 
 class Dechet
 {
-;
-	
-
 public:
 	Dechet();
 	~Dechet();
