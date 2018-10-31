@@ -11,12 +11,14 @@ class UsineTraitement
 public:
 	friend class OperationTraitement;
 	UsineTraitement();
+	UsineTraitement(const UsineTraitement&);
 	~UsineTraitement();
 	void chargerOperations(SequenceOperations* sequenceOperation);
 	void demarrerTraitements(ChargementDechet* chargement);
 
 	class Log
 	{
+		public:
 		void i(string info);
 		void i(Dechet const& dechet);
 		void i(Depot const& depot);
