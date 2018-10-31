@@ -9,6 +9,7 @@
 class UsineTraitement
 {
 public:
+	friend class OperationTraitement;
 	UsineTraitement();
 	~UsineTraitement();
 	void chargerOperations(SequenceOperations* sequenceOperation);
