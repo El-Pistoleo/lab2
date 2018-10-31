@@ -19,18 +19,16 @@ Operation::~Operation()
 
 bool Operation::effectuerOperation(Dechet* dechet)
 {
-	if(effectuerOperation)
+	
 }
 
 Operation * Operation::getOperationSuivante(bool choix)
 {
 	if (choix)
-	{
+
 		return this->operationSuivanteTrue;
-	}
-	else
-	{
-		return this->operationSuivanteFalse;
-	}
+
+	return this->operationSuivanteFalse;
+
 
 }

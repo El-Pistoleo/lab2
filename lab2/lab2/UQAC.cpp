@@ -9,7 +9,7 @@ UQAC::~UQAC()
 {
 }
 
-ChargementDechet * UQAC::getChargementDechets()
+ChargementDechet* UQAC::getChargementDechets()
 {
 	list<Dechet*>* listeDechets = new list<Dechet*>();
 
@@ -26,5 +26,6 @@ ChargementDechet * UQAC::getChargementDechets()
 		listeDechets->push_back(new Chaise());
 		listeDechets->push_back(new DechetMalConcu());
 	}
+	
 
 }

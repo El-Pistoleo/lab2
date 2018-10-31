@@ -8,11 +8,9 @@ ChargementDechet::ChargementDechet()
 
 ChargementDechet::ChargementDechet(list<Dechet*>* listeDechets)
 {
-	Dechet*<int>::iterator i
-	for (i =listeDechets.begin(); i != listeDechets.end(); ++i)
-	{
-		cout << *i << endl;    //On accède à l'élément pointé via l'étoile
-	}
+	this->listeDechets = listeDechets;
+	
+
 }
 
 
@@ -20,7 +18,16 @@ ChargementDechet::~ChargementDechet()
 {
 }
 
-Dechet * ChargementDechet::getDechet()
+Dechet* ChargementDechet::getDechet()
 {
-	return this->listeDechets;
+	list<Dechet*>::iterator x;
+	if (!this->listeDechets->empty()) 
+	{
+		for (x = this->listeDechets->begin(); x != this->listeDechets->end(); x++)
+		{
+				return *x;
+		}
+
+	}
+	
 }

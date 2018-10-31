@@ -17,7 +17,7 @@ public:
 	Dechet* getDechet();
 
 private:
-	Dechet* listeDechets;
+	list<Dechet*>* listeDechets;
 };
 
 
