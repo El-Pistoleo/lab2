@@ -1,12 +1,13 @@
 #pragma once
 #include "UsineTraitement.h"
-class OperationTraitement
+class OperationTraitement: public Operation
 {
 public:
-	OperationTraitement();
-	OperationTraitement(UsineTraitement* usineTraitement);
-	~OperationTraitement();
-	bool effectuerOperation(Dechet* dechet);
+	friend class UsineTraitement;
+
+	OperationTraitement(UsineTraitement* usineTraitement) { Compteur::ajouterConstructeur(); };
+	virtual ~OperationTraitement() { Compteur::ajouterDestructeur(); };
+	virtual bool effectuerOperation(Dechet* dechet);
 
 protected:
 	void creerDechetTraiteRecyclable(Dechet* dechet);

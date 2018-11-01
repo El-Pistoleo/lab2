@@ -4,11 +4,23 @@
 
 UsineTraitement::UsineTraitement()
 {
+	Compteur::ajouterConstructeur();
+}
+
+UsineTraitement::UsineTraitement(const UsineTraitement&)
+{
+	Compteur::ajouterConstructeurCopie();
 }
 
 
 UsineTraitement::~UsineTraitement()
 {
+	Compteur::ajouterDestructeur();
+}
+
+void UsineTraitement::chargerOperations(SequenceOperations* sequenceOperation)
+{
+	this->sequenceOperations = sequenceOperation;
 }
 
 
@@ -74,27 +86,16 @@ void UsineTraitement::creerDechetTraiteCompostable(Dechet * dechet)
 
 void UsineTraitement::traiterDechet(Dechet * dechet)
 {
-	Operation* operationDemarrage = new Operation();
-	Operation* operationCourante = new Operation();
-	Operation* operationSuivante = new Operation();
-	operationDemarrage = this->sequenceOperations->getOperationDemarrage();
-	operationCourante = this->sequenceOperations->ajouterOperation(operationDemarrage);
-	
+	Operation* operationDemarrage = this->sequenceOperations->getOperationDemarrage();
+	bool result;
 	do
 	{
 		preOperation();
-		operationCourante->effectuerOperation(dechet);
+		result = operationDemarrage->effectuerOperation(dechet);
+		operationDemarrage = operationDemarrage->getOperationSuivante(result);
 		postOperation();
-		operationSuivante = operationCourante->getOperationSuivante(operationCourante->effectuerOperation(dechet));
 
-	} while (operationCourante == NULL);
-	
-	/*EXÉCUTER
-		préopération
-		Effectuer l’opération de l’opération courante
-		postoperation
-		Récupérer l’opération suivante
-	TANT QUE l’opération courant est nulle*/
+	} while (operationDemarrage != NULL);
 
 }
 

@@ -2,32 +2,19 @@
 
 
 
-ChargementDechet::ChargementDechet()
-{
-}
-
 ChargementDechet::ChargementDechet(list<Dechet*>* listeDechets)
 {
 	this->listeDechets = listeDechets;
-	
-
+	Compteur::ajouterConstructeur();
 }
 
 
-ChargementDechet::~ChargementDechet()
-{
-}
 
 Dechet* ChargementDechet::getDechet()
 {
-	list<Dechet*>::iterator x;
-	if (!this->listeDechets->empty()) 
-	{
-		for (x = this->listeDechets->begin(); x != this->listeDechets->end(); x++)
-		{
-				return *x;
-		}
-
-	}
+	if (this->listeDechets->empty())
+		return NULL;
+	Dechet* dechet = listeDechets->front();
+	return dechet;
 	
 }

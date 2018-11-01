@@ -2,23 +2,9 @@
 
 
 
-Operation1::Operation1()
+bool Operation1::effectuerOperation(Dechet* dechet)
 {
-}
-
-Operation1::Operation1(Operation * operationSuivanteTrue, Operation * operationSuivanteFalse)
-{
-	Operation(operationSuivanteTrue, operationSuivanteFalse);
-}
-
-
-Operation1::~Operation1()
-{
-}
-
-bool Operation1::effectuerOperation(Dechet * dechet)
-{
-	if(dechet->estRigide || dechet->estEnStyromousse)
+	if(dechet->estRigide() || dechet->estEnStyromousse())
 		return true;
 	return false;
 }

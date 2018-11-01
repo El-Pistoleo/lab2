@@ -1,10 +1,10 @@
 #pragma once
-#include "Dechet.h"
-class DechetTraiteRecyclable
+#include "DechetTraite.h"
+
+class DechetTraiteRecyclable : public DechetTraite
 {
 public:
-	DechetTraiteRecyclable();
-	DechetTraiteRecyclable(Dechet* dechet);
-	~DechetTraiteRecyclable();
+	DechetTraiteRecyclable(Dechet* dechet) : DechetTraite(dechet) { Compteur::ajouterConstructeur(); };
+	~DechetTraiteRecyclable() { Compteur::ajouterDestructeur(); };
 };
 

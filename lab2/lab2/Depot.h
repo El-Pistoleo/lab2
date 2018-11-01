@@ -10,7 +10,7 @@ class Depot
 {
 public:
 	Depot();
-	~Depot();
+	~Depot() { Compteur::ajouterDestructeur(); };
 	CamionBleu* getCamionBleu();
 	CamionVert* getCamionVert();
 	CamionBrun* getCamionBrun();

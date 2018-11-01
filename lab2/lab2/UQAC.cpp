@@ -1,17 +1,9 @@
 #include "UQAC.h"
 
-UQAC::UQAC()
-{
-}
-
-
-UQAC::~UQAC()
-{
-}
-
 ChargementDechet* UQAC::getChargementDechets()
 {
 	list<Dechet*>* listeDechets = new list<Dechet*>();
+	
 
 	for (int x = 0; x < 5; x++)
 	{
@@ -26,6 +18,7 @@ ChargementDechet* UQAC::getChargementDechets()
 		listeDechets->push_back(new Chaise());
 		listeDechets->push_back(new DechetMalConcu());
 	}
-	
+	ChargementDechet* chargementDechet = new ChargementDechet(listeDechets);
+	return chargementDechet;
 
 }

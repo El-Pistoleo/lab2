@@ -1,12 +1,9 @@
 #include "CamionBrun.h"
 
 
-
-CamionBrun::CamionBrun()
+bool CamionBrun::ajouterDechet(DechetTraiteCompostable * dechetTraite)
 {
-}
-
-
-CamionBrun::~CamionBrun()
-{
+	if (Camion::ajouterDechet(dechetTraite))
+		return true;
+	return false;
 }

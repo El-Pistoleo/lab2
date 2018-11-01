@@ -3,7 +3,6 @@
 #include "Dechet.h"
 #include <string>
 #include <list> 
-#include <iterator> 
 
 using namespace std;
 
@@ -11,9 +10,9 @@ class ChargementDechet
 {
 public:
 
-	ChargementDechet();
+	/*ChargementDechet();*/
 	ChargementDechet(list<Dechet*>* listeDechets);
-	~ChargementDechet();
+	~ChargementDechet() { Compteur::ajouterDestructeur(); };
 	Dechet* getDechet();
 
 private:

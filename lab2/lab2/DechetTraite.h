@@ -4,8 +4,7 @@ class DechetTraite
 {
 public:
 	DechetTraite(Dechet* dechet);
-	DechetTraite();
-	~DechetTraite();
+	~DechetTraite() { Compteur::ajouterDestructeur(); };
 	Dechet*  getDechet()  const;
 
 protected:

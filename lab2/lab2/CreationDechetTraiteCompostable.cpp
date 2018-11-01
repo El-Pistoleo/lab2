@@ -1,12 +1,8 @@
 #include "CreationDechetTraiteCompostable.h"
 
 
-
-CreationDechetTraiteCompostable::CreationDechetTraiteCompostable()
+bool CreationDechetTraiteCompostable::effectuerOperation(Dechet * dechet)
 {
-}
-
-
-CreationDechetTraiteCompostable::~CreationDechetTraiteCompostable()
-{
+	creerDechetTraiteCompostable(dechet);
+	return true;
 }

@@ -11,6 +11,7 @@ Dechet::Dechet(int poids, string description, int type, string couleur, Materiel
 	setPurete(purete);
 	this->styromousse = styromousse;
 	this->rigide = rigide;
+	Compteur::ajouterConstructeur();
 }
 
 Dechet::Dechet(int poids, string description)
@@ -18,6 +19,7 @@ Dechet::Dechet(int poids, string description)
 	this->id = idCourant+1;
 	this->poids = poids;
 	this->description = description;
+	Compteur::ajouterConstructeur();
 }
 
 void Dechet::setPoids(int poids)
@@ -68,14 +70,6 @@ void Dechet::setPurete(int purete)
 	}
 }
 
-Dechet::Dechet()
-{
-}
-
-
-Dechet::~Dechet()
-{
-}
 
 ostream& operator<< (ostream& out, const Dechet& dechet)
 {

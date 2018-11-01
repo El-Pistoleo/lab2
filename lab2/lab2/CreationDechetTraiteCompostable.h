@@ -1,12 +1,12 @@
 #pragma once
 #include "UsineTraitement.h"
+#include "OperationTraitement.h"
 
-class CreationDechetTraiteCompostable
+class CreationDechetTraiteCompostable : public OperationTraitement
 {
 public:
-	CreationDechetTraiteCompostable();
-	CreationDechetTraiteCompostable(UsineTraitement* usineTraitement);
-	~CreationDechetTraiteCompostable();
+	CreationDechetTraiteCompostable(UsineTraitement* usineTraitement) : OperationTraitement(usineTraitement) { Compteur::ajouterConstructeur(); };
+	~CreationDechetTraiteCompostable() { Compteur::ajouterDestructeur(); };
 	bool effectuerOperation(Dechet* dechet);
 };
 

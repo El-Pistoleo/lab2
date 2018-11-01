@@ -1,12 +1,32 @@
 #include "Compteur.h"
 
 
-
-Compteur::Compteur()
+void Compteur::ajouterConstructeur()
 {
+	constructeur++;
 }
 
-
-Compteur::~Compteur()
+void Compteur::ajouterConstructeurCopie()
 {
+	constructeurCopie++;
+}
+
+void Compteur::ajouterDestructeur()
+{
+	destructeur++;
+}
+
+int Compteur::getNbConstructeurs()
+{
+	return constructeur;
+}
+
+int Compteur::getNbConstructeursCopie()
+{
+	return constructeurCopie;
+}
+
+int Compteur::getNbDestructeurs()
+{
+	return destructeur;
 }

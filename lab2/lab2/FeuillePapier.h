@@ -4,7 +4,7 @@ class FeuillePapier :
 	public Dechet
 {
 public:
-	FeuillePapier();
-	~FeuillePapier();
+	FeuillePapier() : Dechet(1, "Une feuille", 0, "Inconnu", PAPIER, 95, true, false) { Compteur::ajouterConstructeur(); };
+	~FeuillePapier() { Compteur::ajouterDestructeur(); };
 };
 

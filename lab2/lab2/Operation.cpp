@@ -1,21 +1,13 @@
 #include "Operation.h"
 
 
-
-Operation::Operation()
-{
-}
-
-Operation::Operation(Operation * operationSuivanteTrue, Operation * operationSuivanteFalse)
+Operation::Operation(Operation* operationSuivanteTrue, Operation* operationSuivanteFalse)
 {
 	this->operationSuivanteTrue = operationSuivanteTrue;
 	this->operationSuivanteFalse = operationSuivanteFalse;
+	Compteur::ajouterConstructeur();
 }
 
-
-Operation::~Operation()
-{
-}
 
 bool Operation::effectuerOperation(Dechet* dechet)
 {
@@ -32,3 +24,4 @@ Operation * Operation::getOperationSuivante(bool choix)
 
 
 }
+

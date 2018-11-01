@@ -5,8 +5,8 @@
 class CamionBleu :public Camion
 {
 public:
-	CamionBleu();
-	~CamionBleu();
+	CamionBleu() : Camion(80) { Compteur::ajouterConstructeur(); };
+	~CamionBleu() { Compteur::ajouterDestructeur();};
 	bool ajouterDechet(DechetTraiteRecyclable* dechetTraite);
 };
 

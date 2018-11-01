@@ -5,6 +5,7 @@
 #include "CamionVert.h"
 #include "CamionBrun.h"
 #include "Depot.h"
+#include "Compteur.h"
 
 class UsineTraitement
 {
@@ -16,13 +17,6 @@ public:
 	void chargerOperations(SequenceOperations* sequenceOperation);
 	void demarrerTraitements(ChargementDechet* chargement);
 
-	class Log
-	{
-		public:
-		void i(string info);
-		void i(Dechet const& dechet);
-		void i(Depot const& depot);
-	};
 
 private:
 	void preOperation();
@@ -37,5 +31,14 @@ private:
 	CamionBleu* camionBleu;
 	CamionVert* camionVert;
 	CamionBrun* camionBrun;
+	class Log
+	{
+	public:
+		Log() { Compteur::ajouterConstructeur();}
+		static void i(string info);
+		static void i(Dechet const& dechet);
+		static void i(Depot const& depot);
+	};
+
 
 };

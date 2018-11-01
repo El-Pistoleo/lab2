@@ -2,14 +2,14 @@
 #include <iostream>
 #include <ostream>
 #include <string>
+#include "Compteur.h"
 
 using namespace std;
 
 class Dechet
 {
 public:
-	Dechet();
-	~Dechet();
+	virtual ~Dechet() { Compteur::ajouterDestructeur(); };
 	friend class ChargementDechet;
 	enum Materiel { CARTON, BOUTEILLE, PLASTIQUE, METAL, BOIS, NOURRITURE, VEGETAL, PAPIER, STYROFOAM, INCONNU };
 

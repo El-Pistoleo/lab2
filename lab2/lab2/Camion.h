@@ -5,10 +5,9 @@
 class Camion
 {
 public:
-	Camion();
 	Camion(int maxCapacite);
-	~Camion();
-	bool ajouterDechet(DechetTraite* dechetTraite);
+	virtual ~Camion() { Compteur::ajouterDestructeur(); };
+	virtual bool ajouterDechet(DechetTraite* dechetTraite);
 	int viderCamion();
 	int getCapacite();
 	int getMaxCapacite();

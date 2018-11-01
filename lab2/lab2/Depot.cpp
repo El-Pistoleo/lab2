@@ -7,12 +7,9 @@ Depot::Depot()
 	this->totalDTCompostable = 0;
 	this->totalDTRecyclable = 0;
 	this->totalDTNonRecyclable = 0;
+	Compteur::ajouterConstructeur();
 }
 
-
-Depot::~Depot()
-{
-}
 
 CamionBleu * Depot::getCamionBleu()
 {

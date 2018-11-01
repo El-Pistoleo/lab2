@@ -2,11 +2,8 @@
 
 
 
-CreationDechetTraiteNonRecyclable::CreationDechetTraiteNonRecyclable()
+bool CreationDechetTraiteNonRecyclable::effectuerOperation(Dechet* dechet)
 {
-}
-
-
-CreationDechetTraiteNonRecyclable::~CreationDechetTraiteNonRecyclable()
-{
+	creerDechetTraiteNonRecyclable(dechet);
+	return true;
 }

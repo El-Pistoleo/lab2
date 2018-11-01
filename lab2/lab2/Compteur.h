@@ -2,18 +2,18 @@
 class Compteur
 {
 public:
-	Compteur();
-	~Compteur(); 
-	void ajouterConstructeur();
-	void ajouterConstructeurCopie();
-	void ajouterDestructeur();
-	int getNbConstructeurs();
-	int getNbConstructeursCopie();
-	int getNbDestructeurs();
+	Compteur() { ajouterConstructeur(); };
+	~Compteur() { ajouterDestructeur(); };
+	static void ajouterConstructeur();
+	static void ajouterConstructeurCopie();
+	static void ajouterDestructeur();
+	static int getNbConstructeurs();
+	static int getNbConstructeursCopie();
+	static int getNbDestructeurs();
 
 private:
-	int constructeur;
-	int constructeurCopie;
-	int destructeur;
+	static int constructeur;
+	static int constructeurCopie;
+	static int destructeur;
 };
 

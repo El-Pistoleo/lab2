@@ -4,7 +4,7 @@ class Chaise :
 	public Dechet
 {
 public:
-	Chaise();
-	~Chaise();
+	Chaise() : Dechet(15, "Une chaise", 2, "vert", BOIS, 80, false, true) { Compteur::ajouterConstructeur(); };
+	~Chaise() { Compteur::ajouterDestructeur(); };
 };
 

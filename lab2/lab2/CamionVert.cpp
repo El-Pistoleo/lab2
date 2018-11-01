@@ -1,12 +1,9 @@
 #include "CamionVert.h"
 
 
-
-CamionVert::CamionVert()
+bool CamionVert::ajouterDechet(DechetTraiteNonRecyclable * dechetTraite)
 {
-}
-
-
-CamionVert::~CamionVert()
-{
+	if (Camion::ajouterDechet(dechetTraite))
+		return true;
+	return false;
 }

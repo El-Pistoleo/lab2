@@ -4,14 +4,13 @@
 class Operation
 {
 public:
-	Operation();
 	Operation(Operation* operationSuivanteTrue, Operation* operationSuivanteFalse);
-	~Operation();
+	virtual ~Operation() { Compteur::ajouterDestructeur(); };
 	virtual bool effectuerOperation(Dechet* dechet);
 	Operation* getOperationSuivante(bool choix);
 
 protected:
-	Operation();
+	Operation() { Compteur::ajouterConstructeur(); };
 
 private:
 	Operation* operationSuivanteTrue;

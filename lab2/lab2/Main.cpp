@@ -8,6 +8,8 @@
 #include "GenerateurSequenceOperations.h"
 #include "Compteur.h"
 
+void afficherInformation();
+void laboratoire2();
 
 int main()
 {

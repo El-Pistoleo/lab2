@@ -2,18 +2,12 @@
 
 
 
-DechetTraite::DechetTraite(Dechet * dechet)
+DechetTraite::DechetTraite(Dechet* dechet)
 {
+	this->dechet = dechet;
+	Compteur::ajouterConstructeur();
 }
 
-DechetTraite::DechetTraite()
-{
-}
-
-
-DechetTraite::~DechetTraite()
-{
-}
 
 Dechet * DechetTraite::getDechet() const
 {
