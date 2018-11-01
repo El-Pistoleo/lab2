@@ -19,7 +19,7 @@ Operation::~Operation()
 
 bool Operation::effectuerOperation(Dechet* dechet)
 {
-	
+	return true;
 }
 
 Operation * Operation::getOperationSuivante(bool choix)

@@ -11,6 +11,7 @@ UsineTraitement::~UsineTraitement()
 {
 }
 
+
 void UsineTraitement::demarrerTraitements(ChargementDechet* chargement)
 {
 	Dechet* dechet;
@@ -73,11 +74,32 @@ void UsineTraitement::creerDechetTraiteCompostable(Dechet * dechet)
 
 void UsineTraitement::traiterDechet(Dechet * dechet)
 {
-	EXÉCUTER
+	Operation* operationDemarrage = new Operation();
+	Operation* operationCourante = new Operation();
+	Operation* operationSuivante = new Operation();
+	operationDemarrage = this->sequenceOperations->getOperationDemarrage();
+	operationCourante = this->sequenceOperations->ajouterOperation(operationDemarrage);
+	
+	do
+	{
+		preOperation();
+		operationCourante->effectuerOperation(dechet);
+		postOperation();
+		operationSuivante = operationCourante->getOperationSuivante(operationCourante->effectuerOperation(dechet));
+
+	} while (operationCourante == NULL);
+	
+	/*EXÉCUTER
 		préopération
 		Effectuer l’opération de l’opération courante
 		postoperation
 		Récupérer l’opération suivante
-	TANT QUE l’opération courant est nulle
+	TANT QUE l’opération courant est nulle*/
+
+}
+
+void UsineTraitement::Log::i(string info)
+{
+	cout << info << endl;
 
 }
