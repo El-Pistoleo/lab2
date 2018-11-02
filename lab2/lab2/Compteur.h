@@ -2,8 +2,8 @@
 class Compteur
 {
 public:
-	Compteur() { ajouterConstructeur(); };
-	~Compteur() { ajouterDestructeur(); };
+	Compteur() ;
+	~Compteur();
 	static void ajouterConstructeur();
 	static void ajouterConstructeurCopie();
 	static void ajouterDestructeur();

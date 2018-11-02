@@ -1,5 +1,11 @@
 #include "Compteur.h"
 
+int Compteur::constructeur;
+int Compteur::constructeurCopie;
+int Compteur::destructeur;
+Compteur::Compteur()
+{
+}
 
 void Compteur::ajouterConstructeur()
 {

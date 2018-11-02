@@ -47,10 +47,12 @@ void Depot::depotDechetsTraites(CamionBrun * camion)
 	delete camion;
 }
 
-ostream& operator<< (ostream& out, const Dechet& dechet)
+ostream& operator<< (ostream& out, const Depot& depot)
 {
 	out << "-- DEPOT --" << endl <<
-		"totalDTRecyclable        :" << dechet.id << endl <<
-		"totalDTNonRecyclable     :" << dechet.poids << endl <<
-		"totalDTCompostables      :" << dechet.description << endl;
+		"totalDTRecyclable        :" << depot.totalDTRecyclable << endl <<
+		"totalDTNonRecyclable     :" << depot.totalDTNonRecyclable << endl <<
+		"totalDTCompostables      :" << depot.totalDTCompostable << endl;
+
+	return out;
 }

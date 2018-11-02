@@ -26,7 +26,4 @@ private:
 	int totalDTCompostable;
 };
 
-ostream& operator<<(ostream& out, const Depot& depot) {
-	out << "" << endl;
-	return out;
-}
+/*ostream& operator<<(ostream& out, const Depot& depot);*/

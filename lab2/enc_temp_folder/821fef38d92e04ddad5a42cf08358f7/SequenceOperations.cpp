@@ -27,5 +27,5 @@ void SequenceOperations::definirOperationDemarrage(Operation* operation)
 
 Operation * SequenceOperations::getOperationDemarrage()
 {
-	return operationDemarrage;
+	return this->operationDemarrage;
 }

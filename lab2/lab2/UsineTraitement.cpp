@@ -104,3 +104,11 @@ void UsineTraitement::Log::i(string info)
 	cout << info << endl;
 
 }
+
+void UsineTraitement::Log::i(Dechet const & dechet)
+{
+}
+
+void UsineTraitement::Log::i(Depot const & depot)
+{
+}

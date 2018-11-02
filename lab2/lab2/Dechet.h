@@ -40,7 +40,7 @@ private:
 	int purete;
 	bool styromousse;
 	bool rigide;
-	static int idCourant;
+	int idCourant;
 	
 
 	void setPoids(int poids);
@@ -50,7 +50,4 @@ private:
 	void setPurete(int purete);
 };
 
-ostream& operator<<(ostream& out, const Dechet& dechet) {
-		out << "" << endl;
-		return out;
-	}
+/*ostream& operator<<(ostream& out, const Dechet& dechet);*/

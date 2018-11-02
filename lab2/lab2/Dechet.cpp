@@ -32,7 +32,7 @@ void Dechet::setPoids(int poids)
 
 void Dechet::setDescription(string description)
 {
-	if (description.size < 3)
+	if (description.length() < 3)
 	{
 		this->description = "???";
 	}
@@ -83,4 +83,6 @@ ostream& operator<< (ostream& out, const Dechet& dechet)
 		"purete         :" << dechet.purete << endl <<
 		"styromousse    :" << dechet.styromousse << endl <<
 		"rigide         :" << dechet.rigide << endl;
+	
+	return out;
 }
