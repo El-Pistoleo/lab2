@@ -21,11 +21,9 @@ SequenceOperations* SequenceOperations::ajouterOperation(Operation* operation)
 void SequenceOperations::definirOperationDemarrage(Operation* operation)
 {
 	this->operationDemarrage = operation;
-
-	
 }
 
-Operation * SequenceOperations::getOperationDemarrage()
+ Operation *  SequenceOperations::getOperationDemarrage()
 {
 	return operationDemarrage;
 }

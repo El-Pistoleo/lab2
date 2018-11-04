@@ -40,7 +40,7 @@ void UsineTraitement::demarrerTraitements(ChargementDechet* chargement)
 
 void UsineTraitement::preOperation()
 {
-	Log::i("PRÉOPERATION");
+	Log::i("PREOPERATION");
 }
 
 void UsineTraitement::postOperation()
@@ -86,7 +86,7 @@ void UsineTraitement::creerDechetTraiteCompostable(Dechet * dechet)
 
 void UsineTraitement::traiterDechet(Dechet * dechet)
 {
-	Operation* operationDemarrage = this->sequenceOperations->getOperationDemarrage();
+	Operation* operationDemarrage = sequenceOperations->getOperationDemarrage();
 	bool result;
 	do
 	{

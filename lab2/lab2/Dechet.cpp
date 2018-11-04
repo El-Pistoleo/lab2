@@ -1,5 +1,7 @@
 #include "Dechet.h"
 
+int Dechet::idCourant = 0;
+
 Dechet::Dechet(int poids, string description, int type, string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide)
 {
 	this->id = idCourant+1;

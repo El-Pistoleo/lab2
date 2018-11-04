@@ -26,7 +26,7 @@ void laboratoire2()
 	UsineTraitement* usineTraitement = new UsineTraitement();
 	GenerateurSequenceOperations gso;
 
-	usineTraitement->chargerOperations(gso.genererSequence(0, usineTraitement));
+	usineTraitement->chargerOperations(gso.genererSequence(0,usineTraitement));
 	usineTraitement->demarrerTraitements(chargement);
 
 	delete usineTraitement;

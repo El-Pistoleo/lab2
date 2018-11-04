@@ -15,7 +15,19 @@ GenerateurSequenceOperations::~GenerateurSequenceOperations()
 
 SequenceOperations* GenerateurSequenceOperations::genererSequence(int id, UsineTraitement* usineTraitement)
 {
-	return nullptr;
+	SequenceOperations * operations = new SequenceOperations();
+	switch (id) {
+	case 0:
+		operations = this->genererSequence0(usineTraitement);
+		break;
+	case 1:
+		operations = this->genererSequence1(usineTraitement);
+		break;
+	default:
+		break;
+	}
+
+	return operations;
 }
 
 SequenceOperations* GenerateurSequenceOperations::genererSequence0(UsineTraitement* usineTraitement)

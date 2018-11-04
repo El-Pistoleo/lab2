@@ -40,7 +40,7 @@ private:
 	int purete;
 	bool styromousse;
 	bool rigide;
-	int idCourant;
+	static int idCourant;
 	
 
 	void setPoids(int poids);
