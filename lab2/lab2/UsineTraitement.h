@@ -6,6 +6,7 @@
 #include "CamionBrun.h"
 #include "Depot.h"
 #include "Compteur.h"
+#include "Camion.h"
 
 class UsineTraitement
 {

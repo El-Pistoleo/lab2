@@ -4,6 +4,9 @@
 
 UsineTraitement::UsineTraitement()
 {
+	camionBleu = new CamionBleu();
+	camionVert = new CamionVert();
+	camionBrun = new CamionBrun();
 	Compteur::ajouterConstructeur();
 }
 
@@ -50,10 +53,15 @@ void UsineTraitement::postOperation()
 
 void UsineTraitement::creerDechetTraiteRecyclable(Dechet * dechet)
 {
-	Log::i("ajout DTR : " + dechet->getId());
+	int poids;
 	DechetTraiteRecyclable* dtr = new DechetTraiteRecyclable(dechet);
-	if (!camionBleu->ajouterDechet(dtr))
+	if (camionBleu->ajouterDechet(dtr))
 	{
+		Log::i("ajout DTR : " + dechet->getId());
+	}
+	else
+	{
+		poids = camionBleu->viderCamion();
 		depot.depotDechetsTraites(camionBleu);
 		camionBleu = depot.getCamionBleu();
 		camionBleu->ajouterDechet(dtr);
@@ -62,10 +70,15 @@ void UsineTraitement::creerDechetTraiteRecyclable(Dechet * dechet)
 
 void UsineTraitement::creerDechetTraiteNonRecyclable(Dechet * dechet)
 {
-	Log::i("ajout DTNR : " + dechet->getId());
+	int poids;
 	DechetTraiteNonRecyclable* dtnr = new DechetTraiteNonRecyclable(dechet);
-	if (!camionVert->ajouterDechet(dtnr))
+	if (camionVert->ajouterDechet(dtnr))
 	{
+		Log::i("ajout DTNR : " + dechet->getId());
+	}
+	else
+	{
+		poids = camionVert->viderCamion();
 		depot.depotDechetsTraites(camionVert);
 		camionVert = depot.getCamionVert();
 		camionVert->ajouterDechet(dtnr);
@@ -74,10 +87,15 @@ void UsineTraitement::creerDechetTraiteNonRecyclable(Dechet * dechet)
 
 void UsineTraitement::creerDechetTraiteCompostable(Dechet * dechet)
 {
-	Log::i("ajout DTC : " + dechet->getId());
+	int poids;
 	DechetTraiteCompostable* dtc = new DechetTraiteCompostable(dechet);
-	if (!camionBrun->ajouterDechet(dtc))
+	if (camionBrun->ajouterDechet(dtc))
 	{
+		Log::i("ajout DTC : " + dechet->getId());
+	}
+	else
+	{
+		poids = camionBrun->viderCamion();
 		depot.depotDechetsTraites(camionBrun);
 		camionBrun = depot.getCamionBrun();
 		camionBrun->ajouterDechet(dtc);
@@ -90,10 +108,8 @@ void UsineTraitement::traiterDechet(Dechet * dechet)
 	bool result;
 	do
 	{
-		preOperation();
 		result = operationDemarrage->effectuerOperation(dechet);
 		operationDemarrage = operationDemarrage->getOperationSuivante(result);
-		postOperation();
 
 	} while (operationDemarrage != NULL);
 
