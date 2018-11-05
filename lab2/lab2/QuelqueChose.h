@@ -1,10 +1,27 @@
 #pragma once
+#ifndef QUELQUECHOSE_H
+#define QUELQUECHOSE_H
+
 #include "Dechet.h"
+#include "Compteur.h"
+
 class QuelqueChose :
 	public Dechet
 {
 public:
-	QuelqueChose() : Dechet(55, "Une chose", 0, "Inconnu", INCONNU, 50, false, false) { Compteur::ajouterConstructeur(); };
-	~QuelqueChose() { Compteur::ajouterDestructeur(); };
+	QuelqueChose();
+	~QuelqueChose();
 };
 
+
+
+QuelqueChose::QuelqueChose()
+{
+}
+
+
+QuelqueChose::~QuelqueChose()
+{
+}
+
+#endif

@@ -1,10 +1,27 @@
 #pragma once
+#ifndef VERRECAFE_H
+#define VERRECAFE_H
+
 #include "Dechet.h"
+#include "Compteur.h"
+
 class VerreCafe :
 	public Dechet
 {
 public:
-	VerreCafe(): Dechet(10, "Verre Cafe", 0, "Inconnu", INCONNU, 20, false, true) { Compteur::ajouterConstructeur(); };
-	~VerreCafe() { Compteur::ajouterDestructeur(); };
+	VerreCafe();
+	~VerreCafe();
 };
 
+
+
+VerreCafe::VerreCafe()
+{
+}
+
+
+VerreCafe::~VerreCafe()
+{
+}
+
+#endif

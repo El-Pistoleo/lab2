@@ -1,12 +1,16 @@
-#pragma once
+#ifndef DECHETTRAITE_H
+#define DECHETTRAITE_H
+
 #include "Dechet.h"
+#include "Compteur.h"
 class DechetTraite
 {
 public:
-	DechetTraite(Dechet* dechet);
-	~DechetTraite() { Compteur::ajouterDestructeur(); };
-	Dechet*  getDechet()  const;
-
+	DechetTraite();
+	DechetTraite(Dechet* _dechet);
+	virtual ~DechetTraite();
 protected:
 	Dechet* dechet;
 };
+
+#endif

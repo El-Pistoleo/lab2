@@ -1,9 +1,28 @@
 #pragma once
+#ifndef PLANTEVERTE_H
+#define PLANTEVERTE_H
+
 #include "Dechet.h"
-class PlanteVerte : public Dechet
+#include "Compteur.h"
+
+
+class PlanteVerte :
+	public Dechet
 {
 public:
-	PlanteVerte() :Dechet(25, "Plante verte", 0, "vert", VEGETAL, 100, false, false) { Compteur::ajouterConstructeur(); };
-	~PlanteVerte() { Compteur::ajouterDestructeur(); };
+	PlanteVerte();
+	~PlanteVerte();
 };
 
+
+
+PlanteVerte::PlanteVerte()
+{
+}
+
+
+PlanteVerte::~PlanteVerte()
+{
+}
+
+#endif

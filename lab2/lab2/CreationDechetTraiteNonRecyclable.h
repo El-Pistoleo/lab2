@@ -1,12 +1,17 @@
 #pragma once
-#include "UsineTraitement.h"
-#include "OperationTraitement.h"
+#ifndef CREATIONDECHETTRAITENONRECYCLABLE_H
+#define CREATIONDECHETTRAITENONRECYCLABLE_H
 
-class CreationDechetTraiteNonRecyclable : public OperationTraitement
+#include "OperationTraitement.h"
+#include "Compteur.h"
+
+class CreationDechetTraiteNonRecyclable :
+	public OperationTraitement
 {
 public:
-	
-	CreationDechetTraiteNonRecyclable(UsineTraitement* usineTraitement) : OperationTraitement(usineTraitement) { Compteur::ajouterConstructeur();};
-	~CreationDechetTraiteNonRecyclable() { Compteur::ajouterDestructeur(); };
+	CreationDechetTraiteNonRecyclable(UsineTraitement* usineTraitement);
+	~CreationDechetTraiteNonRecyclable();
 	bool effectuerOperation(Dechet* dechet);
 };
+
+#endif

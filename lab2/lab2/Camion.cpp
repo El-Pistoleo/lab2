@@ -1,45 +1,50 @@
 #include "Camion.h"
 
-Camion::Camion(int maxCapacite)
+
+Camion::Camion()
 {
-	this->maxCapacite = maxCapacite;
-	this->capacite = 0;
 	Compteur::ajouterConstructeur();
 }
 
 
-bool Camion::ajouterDechet(DechetTraite* dechetTraite)
-{	
-	Dechet* dechet = dechetTraite->getDechet();
-	int poidsCamion = getCapacite() + dechet->getPoids();
-	if (poidsCamion <= maxCapacite) {
-		capacite += dechet->getPoids();
-		pileDechet.push(dechetTraite);
+Camion::Camion(int _maxCapacite)
+{
+	Compteur::ajouterConstructeur();
+
+	maxCapacite = _maxCapacite;
+	capacite = 0;
+}
+
+
+Camion::~Camion()
+{
+	Compteur::ajouterDestructeur();
+}
+
+bool Camion::ajouterDechet(DechetTraite* _dechetTraite)
+{
+	if (capacite < maxCapacite)
+	{
+		capacite++;
+		pileDechets.push(_dechetTraite);
 		return true;
 	}
 	else
-	{
 		return false;
-	}
 }
 
 int Camion::viderCamion()
 {
-	while (!pileDechet.empty())
+	Dechet* dechet;
+	int poidsTotal = 0;
+	while (!(pileDechets.empty()))
 	{
-		DechetTraite* dechetT;
-		dechetT=pileDechet.top();		
-		pileDechet.pop();
+		dechet = (Dechet*)pileDechets.top();
+		poidsTotal += dechet->getPoids();
+		pileDechets.pop();
+
+		delete dechet;
 	}
-	return capacite;
-}
-
-int Camion::getCapacite()
-{
-	return capacite;
-}
-
-int Camion::getMaxCapacite()
-{
-	return maxCapacite;
+	capacite = 0;
+	return poidsTotal;
 }

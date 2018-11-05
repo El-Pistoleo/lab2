@@ -1,58 +1,56 @@
 #include "Depot.h"
+#include "Compteur.h"
 
 
 
 Depot::Depot()
 {
-	this->totalDTCompostable = 0;
-	this->totalDTRecyclable = 0;
-	this->totalDTNonRecyclable = 0;
 	Compteur::ajouterConstructeur();
 }
 
 
-CamionBleu * Depot::getCamionBleu()
+Depot::~Depot()
 {
-	return new CamionBleu;
+	Compteur::ajouterDestructeur();
 }
 
-CamionVert * Depot::getCamionVert()
+CamionBleu * Depot::getCamionBleu() const
 {
-	return new CamionVert;
+	Camion* camionBleu = new Camion(40);
+	return (CamionBleu*)camionBleu;
 }
 
-CamionBrun * Depot::getCamionBrun()
+CamionVert * Depot::getCamionVert() const
 {
-	return new CamionBrun;
+	Camion* camionVert = new Camion(40);
+	return (CamionVert*)camionVert;
 }
 
-void Depot::depotDechetsTraites(CamionVert * camion)
+CamionBrun * Depot::getCamionBrun() const
 {
-	totalDTNonRecyclable= totalDTNonRecyclable + camion->getCapacite();
-	camion->viderCamion();
-	delete camion;
+	Camion* camionBrun = new Camion(40);
+	return (CamionBrun*)camionBrun;
 }
 
-void Depot::depotDechetsTraites(CamionBleu * camion)
+void Depot::depotDechetsTraites(CamionVert* _camion)
 {
-	totalDTNonRecyclable = totalDTRecyclable + camion->getCapacite();
-	camion->viderCamion();
-	delete camion;
+	totalDTNonRecyclable += _camion->viderCamion();
+}
+void Depot::depotDechetsTraites(CamionBleu* _camion)
+{
+	totalDTRecyclable += _camion->viderCamion();
+}
+void Depot::depotDechetsTraites(CamionBrun* _camion)
+{
+	totalDTCompostable += _camion->viderCamion();
 }
 
-void Depot::depotDechetsTraites(CamionBrun * camion)
+std::ostream & operator<<(std::ostream & out, Depot const & depot)
 {
-	totalDTNonRecyclable = totalDTCompostable + camion->getCapacite();
-	camion->viderCamion();
-	delete camion;
-}
-
-ostream& operator<< (ostream& out, const Depot& depot)
-{
-	out << "-- DEPOT --" << endl <<
-		"totalDTRecyclable        :" << depot.totalDTRecyclable << endl <<
-		"totalDTNonRecyclable     :" << depot.totalDTNonRecyclable << endl <<
-		"totalDTCompostables      :" << depot.totalDTCompostable << endl;
+	out << "-- DEPOT --" << std::endl
+		<< " totalDTRecyclable    : " << depot.getCamionBleu() << std::endl
+		<< " totalDTNonRecyclable : " << depot.getCamionVert() << std::endl
+		<< " totalDTCompostable   : " << depot.getCamionBrun() << std::endl;
 
 	return out;
 }

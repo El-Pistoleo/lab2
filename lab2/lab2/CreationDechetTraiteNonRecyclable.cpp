@@ -2,8 +2,21 @@
 
 
 
+CreationDechetTraiteNonRecyclable::CreationDechetTraiteNonRecyclable(UsineTraitement* usineTraitement)
+{
+	Compteur::ajouterConstructeur();
+
+	this->usineTraitement = usineTraitement;
+}
+
+
+CreationDechetTraiteNonRecyclable::~CreationDechetTraiteNonRecyclable()
+{
+	Compteur::ajouterDestructeur();
+}
+
 bool CreationDechetTraiteNonRecyclable::effectuerOperation(Dechet* dechet)
 {
-	creerDechetTraiteNonRecyclable(dechet);
+	creerDechetTraiteCompostable(dechet);
 	return true;
 }

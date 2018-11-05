@@ -1,20 +1,32 @@
 #include "ChargementDechet.h"
 
 
-
-ChargementDechet::ChargementDechet(list<Dechet*>* listeDechets)
+ChargementDechet::ChargementDechet(std::list<Dechet*>* listeDechets)
 {
-	this->listeDechets = listeDechets;
 	Compteur::ajouterConstructeur();
+
+	while (!(listeDechets->empty()))
+	{
+		this->listeDechets.push_back(listeDechets->front());
+		listeDechets->pop_front();
+	}
 }
 
 
+ChargementDechet::~ChargementDechet()
+{
+	Compteur::ajouterDestructeur();
+}
 
 Dechet* ChargementDechet::getDechet()
 {
-	if (this->listeDechets->empty())
+	Dechet* dechet;
+	if (!listeDechets.empty())
+	{
+		dechet = listeDechets.back();
+		listeDechets.pop_back();
+		return dechet;
+	}
+	else
 		return NULL;
-	Dechet* dechet = listeDechets->front();
-	return dechet;
-	
 }

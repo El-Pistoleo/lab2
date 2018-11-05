@@ -1,10 +1,26 @@
-#pragma once
+#ifndef BOUTEILLEBIERE_H
+#define BOUTEILLEBIERE_H
+
 #include "Dechet.h"
+#include "Compteur.h"
+
 class BouteilleBiere :
 	public Dechet
 {
 public:
-	BouteilleBiere() : Dechet(25, "Bouteille de Biere", 0, "Inconnu", BOUTEILLE, 62, false, true) { Compteur::ajouterConstructeur(); };
-	~BouteilleBiere() { Compteur::ajouterDestructeur(); };
+	BouteilleBiere();
+	~BouteilleBiere();
 };
 
+
+
+BouteilleBiere::BouteilleBiere()
+{
+}
+
+
+BouteilleBiere::~BouteilleBiere()
+{
+}
+
+#endif

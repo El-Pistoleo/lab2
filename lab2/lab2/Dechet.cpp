@@ -1,27 +1,47 @@
 #include "Dechet.h"
 
-int Dechet::idCourant = 0;
 
-Dechet::Dechet(int poids, string description, int type, string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide)
+Dechet::Dechet()
 {
-	this->id = idCourant+1;
+	Compteur::ajouterConstructeur();
+
+	id = ++idCourant;
+	setPoids(0);
+	setDescription("");
+	setType(0);
+	setCouleur("");
+	materiel = INCONNU;
+	setPurete(1);
+	styromousse = false;
+	rigide = false;
+}
+
+
+Dechet::~Dechet()
+{
+	Compteur::ajouterDestructeur();
+}
+
+Dechet::Dechet(int poids, std::string description, int type, std::string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide)
+{
+	Compteur::ajouterConstructeur();
+
+	id = ++idCourant;
 	setPoids(poids);
 	setDescription(description);
 	setType(type);
 	setCouleur(couleur);
 	this->materiel = materiel;
 	setPurete(purete);
-	this->styromousse = styromousse;
+	styromousse = estEnStyromousse;
 	this->rigide = rigide;
-	Compteur::ajouterConstructeur();
 }
 
-Dechet::Dechet(int poids, string description)
+Dechet::Dechet(int poids, std::string description)
 {
-	this->id = idCourant+1;
-	this->poids = poids;
-	this->description = description;
-	Compteur::ajouterConstructeur();
+	Dechet();
+	setPoids(poids);
+	setDescription(description);
 }
 
 void Dechet::setPoids(int poids)
@@ -32,7 +52,7 @@ void Dechet::setPoids(int poids)
 	}
 }
 
-void Dechet::setDescription(string description)
+void Dechet::setDescription(std::string description)
 {
 	if (description.length() < 3)
 	{
@@ -46,45 +66,44 @@ void Dechet::setDescription(string description)
 
 void Dechet::setType(int type)
 {
-	if (type >=0 && type <=7)
+	if (type > 0 && type <= 7)
 	{
 		this->type = type;
 	}
 }
 
-void Dechet::setCouleur(string couleur)
+void Dechet::setCouleur(std::string couleur)
 {
-	if (couleur != "brun" || couleur != "vert")
+	if (couleur == "brun" || couleur == "vert")
 	{
-		this->couleur = "inconnu";
+		this->couleur = couleur;
 	}
 	else
 	{
-		this->couleur = couleur;
+		this->couleur = "inconnu";
 	}
 }
 
 void Dechet::setPurete(int purete)
 {
-	if (purete >= 1 && purete <= 100)
+	if (purete <= 1 || purete <= 100)
 	{
 		this->purete = purete;
 	}
 }
 
-
-ostream& operator<< (ostream& out, const Dechet& dechet)
+std::ostream & operator<<(std::ostream & out, Dechet const & dechet)
 {
-	out << "--------------------------------" << endl <<
-		"id             :" << dechet.id << endl <<
-		"poids          :" << dechet.poids << endl <<
-		"description    :" << dechet.description << endl <<
-		"type           :" << dechet.type << endl <<
-		"couleur        :" << dechet.couleur << endl <<
-		"materiel       :" << dechet.materiel << endl <<
-		"purete         :" << dechet.purete << endl <<
-		"styromousse    :" << dechet.styromousse << endl <<
-		"rigide         :" << dechet.rigide << endl;
-	
+	out << "--------------------------" << std::endl
+		<< "id          : " << dechet.getId() << std::endl
+		<< "poids       : " << dechet.getPoids() << std::endl
+		<< "description : " << dechet.getDescription() << std::endl
+		<< "type        : " << dechet.getType() << std::endl
+		<< "couleur     : " << dechet.getCouleur() << std::endl
+		<< "materiel    : " << dechet.getMateriel() << std::endl
+		<< "purete      : " << dechet.getPurete() << std::endl
+		<< "styromousse : " << dechet.estEnStyromousse() << std::endl
+		<< "rigide      : " << dechet.estRigide() << std::endl;
+
 	return out;
 }

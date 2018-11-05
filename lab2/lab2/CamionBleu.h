@@ -1,12 +1,19 @@
-#pragma once
-#include "DechetTraiteRecyclable.h"
-#include "Camion.h"
 
-class CamionBleu :public Camion
+#ifndef CAMIONBLEU_H
+#define CAMIONBLEU_H
+
+#include "Camion.h"
+#include "DechetTraiteRecyclable.h"
+#include "Compteur.h"
+
+class CamionBleu :
+	public Camion
 {
 public:
-	CamionBleu() : Camion(80) { Compteur::ajouterConstructeur(); };
-	~CamionBleu() { Compteur::ajouterDestructeur();};
-	bool ajouterDechet(DechetTraiteRecyclable* dechetTraite);
+	CamionBleu();
+	CamionBleu(int _maxCapacite);
+	~CamionBleu();
+	bool ajouterDechet(DechetTraiteRecyclable* _dechetTraite);
 };
 
+#endif

@@ -2,8 +2,20 @@
 
 
 
-bool CreationDechetTraiteRecyclable::effectuerOperation(Dechet * dechet)
+CreationDechetTraiteRecyclable::CreationDechetTraiteRecyclable(UsineTraitement* usineTraitement)
 {
-	creerDechetTraiteNonRecyclable(dechet);
+	Compteur::ajouterConstructeur();
+	this->usineTraitement = usineTraitement;
+}
+
+
+CreationDechetTraiteRecyclable::~CreationDechetTraiteRecyclable()
+{
+	Compteur::ajouterDestructeur();
+}
+
+bool CreationDechetTraiteRecyclable::effectuerOperation(Dechet* dechet)
+{
+	creerDechetTraiteRecyclable(dechet);
 	return true;
 }

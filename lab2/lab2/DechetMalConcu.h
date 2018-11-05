@@ -1,10 +1,25 @@
-#pragma once
+#ifndef DECHETMALCONCU_H
+#define DECHETMALCONCU_H
+
 #include "Dechet.h"
+#include "Compteur.h"
 class DechetMalConcu :
 	public Dechet
 {
 public:
-	DechetMalConcu() : Dechet(70, "Dechet mal consu", 0, "Inconnu", INCONNU, 10, false, true) { Compteur::ajouterConstructeur(); };
-	~DechetMalConcu() { Compteur::ajouterConstructeur(); };
+	DechetMalConcu();
+	~DechetMalConcu();
 };
 
+
+
+DechetMalConcu::DechetMalConcu()
+{
+}
+
+
+DechetMalConcu::~DechetMalConcu()
+{
+}
+
+#endif

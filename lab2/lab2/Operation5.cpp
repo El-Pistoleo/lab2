@@ -1,9 +1,26 @@
 #include "Operation5.h"
 
 
-bool Operation5::effectuerOperation(Dechet * dechet)
+
+Operation5::Operation5(Operation* _operationSuivanteTrue, Operation* _operationSuivanteFalse)
 {
-	if (dechet->getMateriel() == Dechet::Materiel::VEGETAL)
+	Compteur::ajouterConstructeur();
+
+	operationSuivanteFalse = _operationSuivanteFalse;
+	operationSuivanteTrue = _operationSuivanteTrue;
+}
+
+
+Operation5::~Operation5()
+{
+	Compteur::ajouterDestructeur();
+}
+
+bool Operation5::effectuerOperation(Dechet* dechet)
+{
+
+	if (dechet->getMateriel() == 6 && dechet->getCouleur() == "vert")
 		return true;
-	return false;
+	else
+		return false;
 }

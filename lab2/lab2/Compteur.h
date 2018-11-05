@@ -1,8 +1,11 @@
 #pragma once
+#ifndef COMPTEUR_H
+#define COMPTEUR_H
+
 class Compteur
 {
 public:
-	Compteur() ;
+	Compteur();
 	~Compteur();
 	static void ajouterConstructeur();
 	static void ajouterConstructeurCopie();
@@ -16,4 +19,4 @@ private:
 	static int constructeurCopie;
 	static int destructeur;
 };
-
+#endif

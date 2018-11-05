@@ -1,19 +1,25 @@
-#pragma once
+#ifndef CAMION_H
+#define CAMION_H
+
 #include <stack>
 #include "DechetTraite.h"
+#include "Compteur.h"
 
 class Camion
 {
 public:
-	Camion(int maxCapacite);
-	virtual ~Camion() { Compteur::ajouterDestructeur(); };
-	virtual bool ajouterDechet(DechetTraite* dechetTraite);
+	Camion();
+	Camion(int _maxCapacite);
+	virtual ~Camion();
+	virtual bool ajouterDechet(DechetTraite* _dechetTraite);
 	int viderCamion();
-	int getCapacite();
-	int getMaxCapacite();
-private:
+
+protected:
 	int maxCapacite;
 	int capacite;
-	stack<DechetTraite*> pileDechet;
+	std::stack <DechetTraite*> pileDechets;
+
+
 };
 
+#endif

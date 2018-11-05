@@ -1,9 +1,32 @@
 #include "CamionBrun.h"
 
 
-bool CamionBrun::ajouterDechet(DechetTraiteCompostable * dechetTraite)
+
+CamionBrun::CamionBrun()
 {
-	if (Camion::ajouterDechet(dechetTraite))
+	Compteur::ajouterConstructeur();
+}
+
+CamionBrun::CamionBrun(int _maxCapacite)
+{
+	Compteur::ajouterConstructeur();
+
+	maxCapacite = _maxCapacite;
+	capacite = 0;
+}
+
+CamionBrun::~CamionBrun()
+{
+	Compteur::ajouterDestructeur();
+}
+
+bool CamionBrun::ajouterDechetTraite(DechetTraiteCompostable* _dechetTraite)
+{
+	if (capacite < maxCapacite)
+	{
+		pileDechets.push((DechetTraite*)_dechetTraite);
 		return true;
-	return false;
+	}
+	else
+		return false;
 }

@@ -1,22 +1,17 @@
-#pragma once
-#include <iostream>
+#ifndef CHARGEMENTDECHET_H
+#define CHARGEMENTDECHET_H
+
 #include "Dechet.h"
-#include <string>
-#include <list> 
-
-using namespace std;
-
+#include "Compteur.h"
 class ChargementDechet
 {
 public:
-
-	/*ChargementDechet();*/
-	ChargementDechet(list<Dechet*>* listeDechets);
-	~ChargementDechet() { Compteur::ajouterDestructeur(); };
+	ChargementDechet(std::list <Dechet*>* listeDechets);
+	~ChargementDechet();
 	Dechet* getDechet();
-
 private:
-	list<Dechet*>* listeDechets;
+	std::list<Dechet*> listeDechets;
 };
 
+#endif
 

@@ -1,15 +1,20 @@
 #include "DechetTraite.h"
 
 
-
-DechetTraite::DechetTraite(Dechet* dechet)
+DechetTraite::DechetTraite()
 {
-	this->dechet = dechet;
 	Compteur::ajouterConstructeur();
 }
 
 
-Dechet * DechetTraite::getDechet() const
+DechetTraite::DechetTraite(Dechet* dechet)
 {
-	return dechet;
+	Compteur::ajouterConstructeur();
+	this->dechet = dechet;
+}
+
+
+DechetTraite::~DechetTraite()
+{
+	Compteur::ajouterDestructeur();
 }

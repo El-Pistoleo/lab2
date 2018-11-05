@@ -1,14 +1,27 @@
-#pragma once
+
+#ifndef BOITECARTON_H
+#define BOITECARTON_H
+
 #include "Dechet.h"
+#include "Compteur.h"
 
 class BoiteCarton :
 	public Dechet
 {
 public:
-	BoiteCarton() : Dechet (1, "Une Boite de Carton", 0, "brun", CARTON, 70,false,false) {Compteur::ajouterConstructeur();};
-
-	/*constructeur par copie*/
-
-	~BoiteCarton() { Compteur::ajouterDestructeur(); };
+	BoiteCarton();
+	~BoiteCarton();
 };
 
+
+
+BoiteCarton::BoiteCarton()
+{
+}
+
+
+BoiteCarton::~BoiteCarton()
+{
+}
+
+#endif

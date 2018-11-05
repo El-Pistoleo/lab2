@@ -2,28 +2,28 @@
 
 
 
+SequenceOperations::SequenceOperations()
+{
+	Compteur::ajouterConstructeur();
+}
+
+
 SequenceOperations::~SequenceOperations()
 {
-	while (!listeOperations.empty()) {
-		Compteur::ajouterDestructeur();
-		listeOperations.pop_front();	
-	}
-	/*compteur destructeur*/
 	Compteur::ajouterDestructeur();
 }
 
 SequenceOperations* SequenceOperations::ajouterOperation(Operation* operation)
 {
-	this->listeOperations.push_front(operation);
-	return this;
+	return NULL;
 }
 
-void SequenceOperations::definirOperationDemarrage(Operation* operation)
+void SequenceOperations::definirOperationDemarage(Operation* operation)
 {
-	this->operationDemarrage = operation;
+	operationDemarage = operation;
 }
 
- Operation *  SequenceOperations::getOperationDemarrage()
+Operation* SequenceOperations::getOperationDemarage()
 {
-	return operationDemarrage;
+	return operationDemarage;
 }

@@ -2,9 +2,25 @@
 
 
 
-bool Operation4::effectuerOperation(Dechet * dechet)
+Operation4::Operation4(Operation* _operationSuivanteTrue, Operation* _operationSuivanteFalse)
 {
-	if (dechet->getMateriel() == Dechet::Materiel::NOURRITURE)
+	Compteur::ajouterConstructeur();
+
+	operationSuivanteFalse = _operationSuivanteFalse;
+	operationSuivanteTrue = _operationSuivanteTrue;
+}
+
+
+Operation4::~Operation4()
+{
+	Compteur::ajouterDestructeur();
+}
+
+bool Operation4::effectuerOperation(Dechet* dechet)
+{
+
+	if (dechet->getMateriel() == 5 && dechet->getCouleur() == "brun")
 		return true;
-	return false;
+	else
+		return false;
 }

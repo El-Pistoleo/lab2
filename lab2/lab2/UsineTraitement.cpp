@@ -1,15 +1,12 @@
 #include "UsineTraitement.h"
 
-
-
 UsineTraitement::UsineTraitement()
 {
 	Compteur::ajouterConstructeur();
-}
 
-UsineTraitement::UsineTraitement(const UsineTraitement&)
-{
-	Compteur::ajouterConstructeurCopie();
+	camionVert = new CamionVert(40);
+	camionBleu = new CamionBleu(20);
+	camionBrun = new CamionBrun(50);
 }
 
 
@@ -18,97 +15,92 @@ UsineTraitement::~UsineTraitement()
 	Compteur::ajouterDestructeur();
 }
 
-void UsineTraitement::chargerOperations(SequenceOperations* sequenceOperation)
+void UsineTraitement::chargerOperations(SequenceOperations* _sequenceOperations)
 {
-	this->sequenceOperations = sequenceOperation;
+	sequenceOperations = _sequenceOperations;
 }
-
 
 void UsineTraitement::demarrerTraitements(ChargementDechet* chargement)
 {
 	Dechet* dechet;
 	while ((dechet = chargement->getDechet()) != NULL)
 	{
-		Log::i(*dechet);
-		preOperation();
 		traiterDechet(dechet);
-		postOperation();
 	}
+	this->camionBleu->viderCamion();
+	this->camionBrun->viderCamion();
+	this->camionVert->viderCamion();
+
 	delete chargement;
-	Log::i(depot);
 }
 
 void UsineTraitement::preOperation()
 {
-	Log::i("PREOPERATION");
+	Log log;
+	log.i("PREOPERATION");
 }
-
 void UsineTraitement::postOperation()
 {
-	Log::i("POSTOPERATION");
+	Log log;
+	log.i("POSTOPERATION");
 }
-
-void UsineTraitement::creerDechetTraiteRecyclable(Dechet * dechet)
+void UsineTraitement::creerDechetTraiteRecyclable(Dechet* dechet)
 {
-	Log::i("ajout DTR : " + dechet->getId());
-	DechetTraiteRecyclable* dtr = new DechetTraiteRecyclable(dechet);
-	if (!camionBleu->ajouterDechet(dtr))
+	Log log;
+	int poids;
+	if (camionBleu->ajouterDechet((DechetTraiteRecyclable*)dechet))
 	{
-		depot.depotDechetsTraites(camionBleu);
-		camionBleu = depot.getCamionBleu();
-		camionBleu->ajouterDechet(dtr);
+		log.i("AJOUT DTR " + std::to_string(dechet->getId()));
+	}
+	else
+	{
+		poids = camionBleu->viderCamion();
+		camionBleu->ajouterDechet((DechetTraiteRecyclable*)dechet);
+		log.i("AJOUT DTR" + std::to_string(dechet->getId()));
 	}
 }
-
-void UsineTraitement::creerDechetTraiteNonRecyclable(Dechet * dechet)
+void UsineTraitement::creerDechetTraiteNonRecyclable(Dechet* dechet)
 {
-	Log::i("ajout DTNR : " + dechet->getId());
-	DechetTraiteNonRecyclable* dtnr = new DechetTraiteNonRecyclable(dechet);
-	if (!camionVert->ajouterDechet(dtnr))
+	Log log;
+	int poids;
+	if (camionVert->ajouterDechet((DechetTraiteNonRecyclable*)dechet))
 	{
-		depot.depotDechetsTraites(camionVert);
-		camionVert = depot.getCamionVert();
-		camionVert->ajouterDechet(dtnr);
+		log.i("AJOUT DTNR " + std::to_string(dechet->getId()));
+	}
+	else
+	{
+		poids = camionVert->viderCamion();
+		camionVert->ajouterDechet((DechetTraiteNonRecyclable*)dechet);
+		log.i("AJOUT DTNR " + std::to_string(dechet->getId()));
 	}
 }
-
-void UsineTraitement::creerDechetTraiteCompostable(Dechet * dechet)
+void UsineTraitement::creerDechetTraiteCompostable(Dechet* dechet)
 {
-	Log::i("ajout DTC : " + dechet->getId());
-	DechetTraiteCompostable* dtc = new DechetTraiteCompostable(dechet);
-	if (!camionBrun->ajouterDechet(dtc))
+	Log log;
+	int poids;
+	if (camionBrun->ajouterDechet((DechetTraiteCompostable*)dechet))
 	{
-		depot.depotDechetsTraites(camionBrun);
-		camionBrun = depot.getCamionBrun();
-		camionBrun->ajouterDechet(dtc);
+		log.i("AJOUT DTC" + std::to_string(dechet->getId()));
+	}
+	else
+	{
+		poids = camionBrun->viderCamion();
+		log.i("Camion brun vide de " + std::to_string(poids) + "kg");
+		camionBrun->ajouterDechet((DechetTraiteCompostable*)dechet);
+		log.i("AJOUT DTC " + std::to_string(dechet->getId()));
 	}
 }
-
-void UsineTraitement::traiterDechet(Dechet * dechet)
+void UsineTraitement::traiterDechet(Dechet* dechet)
 {
-	Operation* operationDemarrage = sequenceOperations->getOperationDemarrage();
-	bool result;
+	Operation* operation = sequenceOperations->getOperationDemarage();
+	bool resultat;
+	std::cout << "ID Dechet " << dechet->getId() << std::endl;
+	preOperation();
 	do
 	{
-		preOperation();
-		result = operationDemarrage->effectuerOperation(dechet);
-		operationDemarrage = operationDemarrage->getOperationSuivante(result);
-		postOperation();
-
-	} while (operationDemarrage != NULL);
-
-}
-
-void UsineTraitement::Log::i(string info)
-{
-	cout << info << endl;
-
-}
-
-void UsineTraitement::Log::i(Dechet const & dechet)
-{
-}
-
-void UsineTraitement::Log::i(Depot const & depot)
-{
+		resultat = operation->effectuerOperation(dechet);
+		operation = operation->getOperationSuivante(resultat);
+	} while (operation != NULL);
+	postOperation();
+	std::cout << std::endl;
 }

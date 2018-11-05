@@ -1,18 +1,21 @@
 #pragma once
+#ifndef SEQUENCEOPERATIONS_H
+#define SEQUENCEOPERATIONS_H
+
 #include "Operation.h"
-#include <list> 
+#include "Compteur.h"
 
 class SequenceOperations
 {
 public:
-	SequenceOperations() {Compteur::ajouterConstructeur(); };
+	SequenceOperations();
 	~SequenceOperations();
 	SequenceOperations* ajouterOperation(Operation* operation);
-	void definirOperationDemarrage(Operation* operation);
-	Operation* getOperationDemarrage();
-
+	void definirOperationDemarage(Operation* operation);
+	Operation* getOperationDemarage();
 private:
-	 list<Operation*> listeOperations;
-	 Operation* operationDemarrage;
+	Operation* listeOperations;
+	Operation* operationDemarage;
 };
 
+#endif
