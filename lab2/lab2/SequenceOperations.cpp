@@ -14,7 +14,7 @@ SequenceOperations::~SequenceOperations()
 
 SequenceOperations* SequenceOperations::ajouterOperation(Operation* operation)
 {
-	listeOperations.push_front(operation);
+	this->listeOperations.push_front(operation);
 	return this;
 }
 
