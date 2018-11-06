@@ -26,6 +26,7 @@ void laboratoire2()
 	usineTraitement->demarrerTraitements(chargement);
 
 	delete usineTraitement;
+	
 }
 int main()
 {

@@ -34,10 +34,6 @@ SequenceOperations* GenerateurSequenceOperations::genererSequence(int id, UsineT
 		->ajouterOperation(op2)
 		->ajouterOperation(op1);
 		sequenceOperations->definirOperationDemarage(op1);
-
-		delete op6;
-		
-		delete dtc;
 	return sequenceOperations;
 }
 

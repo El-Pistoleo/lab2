@@ -13,6 +13,10 @@ UsineTraitement::UsineTraitement()
 UsineTraitement::~UsineTraitement()
 {
 	Compteur::ajouterDestructeur();
+	delete camionBleu;
+	delete camionVert;
+	delete camionBrun;
+	delete sequenceOperations;
 }
 
 void UsineTraitement::chargerOperations(SequenceOperations* _sequenceOperations)
@@ -27,6 +31,8 @@ void UsineTraitement::demarrerTraitements(ChargementDechet* chargement)
 	{
 		traiterDechet(dechet);
 	}
+
+
 	this->camionBleu->viderCamion();
 	this->camionBrun->viderCamion();
 	this->camionVert->viderCamion();

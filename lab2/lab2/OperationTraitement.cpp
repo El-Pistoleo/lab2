@@ -11,7 +11,6 @@ OperationTraitement::OperationTraitement(UsineTraitement* _usineTraitement)
 	usineTraitement = _usineTraitement;
 }
 
-
 OperationTraitement::~OperationTraitement()
 {
 	Compteur::ajouterDestructeur();

@@ -17,4 +17,5 @@ DechetTraite::DechetTraite(Dechet* dechet)
 DechetTraite::~DechetTraite()
 {
 	Compteur::ajouterDestructeur();
+	delete dechet;
 }

@@ -7,6 +7,7 @@
 #include "SequenceOperations.h"
 #include "Depot.h"
 #include "Compteur.h"
+#include "Operation.h"
 
 class UsineTraitement
 {

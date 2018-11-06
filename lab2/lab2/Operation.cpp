@@ -14,6 +14,7 @@ Operation::Operation()
 Operation::~Operation()
 {
 	Compteur::ajouterDestructeur();
+
 }
 
 Operation::Operation(Operation* _operationSuivanteTrue, Operation* _operationSuivanteFalse)

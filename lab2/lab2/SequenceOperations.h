@@ -4,6 +4,7 @@
 
 #include "Operation.h"
 #include "Compteur.h"
+using namespace std;
 
 class SequenceOperations
 {
@@ -16,6 +17,7 @@ public:
 private:
 	Operation* listeOperations;
 	Operation* operationDemarage;
+	list<Operation*> allOperations;
 };
 
 #endif
