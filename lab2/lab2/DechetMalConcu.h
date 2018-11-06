@@ -15,11 +15,13 @@ public:
 
 DechetMalConcu::DechetMalConcu()
 {
+	Compteur::ajouterConstructeur();
 }
 
 
 DechetMalConcu::~DechetMalConcu()
 {
+	Compteur::ajouterDestructeur();
 }
 
 #endif

@@ -17,11 +17,13 @@ public:
 
 BoiteCarton::BoiteCarton()
 {
+	Compteur::ajouterConstructeur();
 }
 
 
 BoiteCarton::~BoiteCarton()
 {
+	Compteur::ajouterDestructeur();
 }
 
 #endif

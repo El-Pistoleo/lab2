@@ -104,3 +104,13 @@ void UsineTraitement::traiterDechet(Dechet* dechet)
 	postOperation();
 	std::cout << std::endl;
 }
+
+UsineTraitement::Log::Log()
+{
+	Compteur::ajouterConstructeur();
+}
+
+UsineTraitement::Log::~Log()
+{
+	Compteur::ajouterDestructeur();
+}

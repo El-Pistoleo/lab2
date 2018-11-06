@@ -15,11 +15,13 @@ public:
 
 Chaise::Chaise()
 {
+	Compteur::ajouterConstructeur();
 }
 
 
 Chaise::~Chaise()
 {
+	Compteur::ajouterDestructeur();
 }
 
 #endif

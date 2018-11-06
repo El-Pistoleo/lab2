@@ -16,11 +16,13 @@ public:
 
 BouteilleBiere::BouteilleBiere()
 {
+	Compteur::ajouterConstructeur();
 }
 
 
 BouteilleBiere::~BouteilleBiere()
 {
+	Compteur::ajouterDestructeur();
 }
 
 #endif

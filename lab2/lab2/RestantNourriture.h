@@ -18,11 +18,13 @@ public:
 
 RestantNourriture::RestantNourriture()
 {
+	Compteur::ajouterConstructeur();
 }
 
 
 RestantNourriture::~RestantNourriture()
 {
+	Compteur::ajouterDestructeur();
 }
 
 #endif

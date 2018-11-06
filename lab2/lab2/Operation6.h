@@ -5,7 +5,6 @@
 #include "Operation.h"
 #include "Compteur.h"
 
-
 class Operation6 :
 	public Operation
 {

@@ -15,6 +15,8 @@ public:
 	class Log
 	{
 	public:
+		Log();
+		~Log();
 		void i(std::string info) const { std::cout << info << std::endl; };
 		void i(Dechet const& dechet) {};
 		void i(Depot const& depot) {};

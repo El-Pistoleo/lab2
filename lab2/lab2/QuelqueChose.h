@@ -17,11 +17,13 @@ public:
 
 QuelqueChose::QuelqueChose()
 {
+	Compteur::ajouterConstructeur();
 }
 
 
 QuelqueChose::~QuelqueChose()
 {
+	Compteur::ajouterDestructeur();
 }
 
 #endif

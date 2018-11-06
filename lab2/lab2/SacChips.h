@@ -17,11 +17,13 @@ public:
 
 SacChips::SacChips()
 {
+	Compteur::ajouterConstructeur();
 }
 
 
 SacChips::~SacChips()
 {
+	Compteur::ajouterDestructeur();
 }
 
 #endif

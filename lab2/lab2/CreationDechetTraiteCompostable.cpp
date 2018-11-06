@@ -5,7 +5,6 @@
 CreationDechetTraiteCompostable::CreationDechetTraiteCompostable(UsineTraitement* usineTraitement)
 {
 	Compteur::ajouterConstructeur();
-
 	this->usineTraitement = usineTraitement;
 }
 

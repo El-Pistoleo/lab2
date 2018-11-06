@@ -18,11 +18,13 @@ public:
 
 PlanteVerte::PlanteVerte()
 {
+	Compteur::ajouterConstructeur();
 }
 
 
 PlanteVerte::~PlanteVerte()
 {
+	Compteur::ajouterDestructeur();
 }
 
 #endif

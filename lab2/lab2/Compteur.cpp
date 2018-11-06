@@ -7,6 +7,10 @@ Compteur::Compteur()
 {
 }
 
+Compteur::~Compteur()
+{
+}
+
 void Compteur::ajouterConstructeur()
 {
 	constructeur++;
