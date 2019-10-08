@@ -1,12 +1,17 @@
 #pragma once
-#include "Operation.h"
+#ifndef OPERATION4_H
+#define OPERATION4_H
 
-class Operation4
+#include "Operation.h"
+#include "Compteur.h"
+
+class Operation4 :
+	public Operation
 {
 public:
-	Operation4();
 	Operation4(Operation* operationSuivanteTrue, Operation* operationSuivanteFalse);
 	~Operation4();
-	bool effectuerOperation(Dechet* dechet);
+	virtual bool effectuerOperation(Dechet* dechet);
 };
 
+#endif

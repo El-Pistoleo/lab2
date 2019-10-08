@@ -1,24 +1,24 @@
 #pragma once
-#include <iostream>
-#include <ostream>
+#ifndef DEPOT_H
+#define DEPOT_H
+
 #include "CamionBleu.h"
 #include "CamionBrun.h"
 #include "CamionVert.h"
-using namespace std;
+#include "Compteur.h"
 
 class Depot
 {
 public:
 	Depot();
 	~Depot();
-	CamionBleu* getCamionBleu();
-	CamionVert* getCamionVert();
-	CamionBrun* getCamionBrun();
-	void depotDechetsTraites(CamionVert* camion);
-	void depotDechetsTraites(CamionBleu* camion);
-	void depotDechetsTraites(CamionBrun* camion);
+	CamionBleu* getCamionBleu() const;
+	CamionVert* getCamionVert() const;
+	CamionBrun* getCamionBrun() const;
+	void depotDechetsTraites(CamionVert* _camion);
+	void depotDechetsTraites(CamionBleu* _camion);
+	void depotDechetsTraites(CamionBrun* _camion);
 
-	friend ostream& operator<< (ostream& out, const Depot&);
 
 private:
 	int totalDTRecyclable;
@@ -26,7 +26,6 @@ private:
 	int totalDTCompostable;
 };
 
-ostream& operator<<(ostream& out, const Depot& depot) {
-	out << "-- DEPOT --" << endl;
-	return out;
-}
+std::ostream & operator<<(std::ostream & out, Depot const & depot);
+
+#endif

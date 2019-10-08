@@ -1,26 +1,31 @@
 #pragma once
+#ifndef USINETRAITEMENT_H
+#define USINETRAITEMENT_H
+
+#include "Operation1.h"
+#include "ChargementDechet.h"
 #include "SequenceOperations.h"
-#include "chargementDechet.h"
-#include "CamionBleu.h"
-#include "CamionVert.h"
-#include "CamionBrun.h"
 #include "Depot.h"
+#include "Compteur.h"
+#include "Operation.h"
 
 class UsineTraitement
 {
 public:
-	UsineTraitement();
-	~UsineTraitement();
-	void chargerOperations(SequenceOperations* sequenceOperation);
-	void demarrerTraitements(ChargementDechet* chargement);
 
 	class Log
 	{
-		void i(string info);
-		void i(Dechet const& dechet);
-		void i(Depot const& depot);
+	public:
+		Log();
+		~Log();
+		void i(std::string info) const { std::cout << info << std::endl; };
+		void i(Dechet const& dechet) {};
+		void i(Depot const& depot) {};
 	};
-
+	UsineTraitement();
+	~UsineTraitement();
+	void chargerOperations(SequenceOperations* sequenceOperations);
+	void demarrerTraitements(ChargementDechet* chargement);
 private:
 	void preOperation();
 	void postOperation();
@@ -28,11 +33,14 @@ private:
 	void creerDechetTraiteNonRecyclable(Dechet* dechet);
 	void creerDechetTraiteCompostable(Dechet* dechet);
 	void traiterDechet(Dechet* dechet);
-
 	SequenceOperations* sequenceOperations;
 	Depot depot;
-	CamionBleu* camionBleu;
 	CamionVert* camionVert;
+	CamionBleu* camionBleu;
 	CamionBrun* camionBrun;
 
+	friend class OperationTraitement;
+
 };
+
+#endif

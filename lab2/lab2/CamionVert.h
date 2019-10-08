@@ -1,11 +1,18 @@
-#pragma once
-#include "DechetTraiteNonRecyclable.h"
+#ifndef CAMIONVERT_H
+#define CAMIONVERT_H
 
-class CamionVert
+#include "Camion.h"
+#include "DechetTraiteNonRecyclable.h"
+#include "Compteur.h"
+
+class CamionVert :
+	public Camion
 {
 public:
 	CamionVert();
+	CamionVert(int _maxCapacite);
 	~CamionVert();
-	bool ajouterDechet(DechetTraiteNonRecyclable* dechetTraite);
+	bool ajouterDechetTraite(DechetTraiteNonRecyclable* _dechetTraite);
 };
 
+#endif

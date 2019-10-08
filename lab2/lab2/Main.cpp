@@ -1,22 +1,20 @@
-#pragma once
 #include <iostream>
-#include <ostream>
-#include <string>
-#include "ChargementDechet.h"
 #include "UQAC.h"
-#include "UsineTraitement.h"
 #include "GenerateurSequenceOperations.h"
-#include "Compteur.h"
 
+using namespace std;
 
-int main()
+int Dechet::idCourant = 0;
+int Dechet::memoire = 0;
+
+void afficherInformation()
 {
-	laboratoire2();
-	afficherInformation();
-
-	return 0;
+	cout << endl << endl;
+	cout << endl << "-------------------------------" << endl
+		<< " NB constructeurs : " << Compteur::getNbConstructeurs() << endl
+		<< " NB destructeurs  : " << Compteur::getNbDestructeurs() << endl;
+	cin.get();
 }
-
 
 void laboratoire2()
 {
@@ -28,13 +26,12 @@ void laboratoire2()
 	usineTraitement->demarrerTraitements(chargement);
 
 	delete usineTraitement;
+	
 }
-
-void afficherInformation()
+int main()
 {
-	cout << endl << endl;
-	cout << endl << "-------------------------------" << endl
-		<< " NB constructeurs : " << Compteur::getNbConstructeurs() << endl
-		<< " NB destructeurs  : " << Compteur::getNbDestructeurs() << endl;
-	cin.get();
+	int i;
+	laboratoire2();
+	afficherInformation();
+	return 0;
 }

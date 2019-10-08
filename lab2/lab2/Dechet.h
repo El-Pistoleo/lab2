@@ -1,56 +1,73 @@
-#pragma once
+#ifndef DECHET_H
+#define DECHET_H
+
 #include <iostream>
-#include <ostream>
 #include <string>
-
-using namespace std;
-
+#include <list>
+#include "Compteur.h"
 class Dechet
 {
+
 public:
-	Dechet();
-	~Dechet();
-	friend class ChargementDechet;
-	enum Materiel { CARTON, BOUTEILLE, PLASTIQUE, METAL, BOIS, NOURRITURE, VEGETAL, PAPIER, STYROFOAM, INCONNU };
+	static int memoire;
 
-	int getPoids()			{ return poids; };
-	int getId()				{ return id; };
-	string getDescription() { return description; };
-	int getType()			{ return type; };
-	string getCouleur()		{ return couleur; };
-	Materiel getMateriel()	{ return materiel; };
-	int getPurete()			{ return purete; };
-	bool estEnStyromousse() { return styromousse; };
-	bool estRigide()		{ return right; };
-	friend ostream& operator<< (ostream& out, const Dechet&);
-
-protected:
-
-	Dechet(int poids, string description, int type, string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide);
-	Dechet(int poids, string description);
-	
-
+	enum Materiel
+	{
+		CARTON,
+		BOUTEILLE,
+		PLASTIQUE,
+		METAL,
+		BOIS,
+		NOURRITURE,
+		VEGETAL,
+		PAPIER,
+		STYROMOAF,
+		INCONNU
+	};
 private:
+
+
 	int poids;
 	int id;
-	string description;
+	std::string description;
 	int type;
-	string couleur;
+	std::string couleur;
 	Materiel materiel;
 	int purete;
 	bool styromousse;
 	bool rigide;
-	static int idCourant;
-	
 
-	void setPoids(int poids) { this->poids= poids; };
-	void setDescription(string description) { this->description = description; };
-	void setType(int type) { this->type = type; };
-	void setClouleur(string couleur) { this->couleur = couleur; };
-	void setPurete(int purete) { this->purete = purete; };
+	void setPoids(int poids);
+	void setDescription(std::string description);
+	void setType(int type);
+	void setCouleur(std::string couleur);
+	void setPurete(int purete);
+
+
+public:
+
+	Dechet();
+	~Dechet();
+
+	static int idCourant;
+
+	int getPoids() const { return poids; }
+	int getId() const { return id; }
+	std::string getDescription() const { return description; }
+	int getType() const { return type; }
+	std::string getCouleur() const { return couleur; }
+	Materiel getMateriel() const { return materiel; }
+	int getPurete() const { return purete; }
+	bool estEnStyromousse() const { return styromousse; }
+	bool estRigide() const { return rigide; }
+	Dechet(int poids, std::string description, int type, std::string couleur, Materiel materiel, int purete, bool estEnStyromousse, bool rigide);
+
+protected:
+	Dechet(int poids, std::string description);
 };
 
-ostream& operator<<(ostream& out, const Dechet& dechet) {
-		out << "" << endl;
-		return out;
-	}
+
+
+std::ostream &operator<<(std::ostream &out, Dechet const &dechet);
+
+#endif

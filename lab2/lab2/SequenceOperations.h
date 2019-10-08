@@ -1,5 +1,10 @@
 #pragma once
+#ifndef SEQUENCEOPERATIONS_H
+#define SEQUENCEOPERATIONS_H
+
 #include "Operation.h"
+#include "Compteur.h"
+using namespace std;
 
 class SequenceOperations
 {
@@ -7,11 +12,12 @@ public:
 	SequenceOperations();
 	~SequenceOperations();
 	SequenceOperations* ajouterOperation(Operation* operation);
-	void definirOperationDemarrage(Operation* operation);
-	Operation* getOperationDemarrage();
-
+	void definirOperationDemarage(Operation* operation);
+	Operation* getOperationDemarage();
 private:
-	Operation* listeOperation;
-	Operation* operationDemarrage;
+	Operation* listeOperations;
+	Operation* operationDemarage;
+	list<Operation*> allOperations;
 };
 
+#endif

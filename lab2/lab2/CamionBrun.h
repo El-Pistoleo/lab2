@@ -1,11 +1,18 @@
-#pragma once
-#include "DechetTraiteCompostable.h"
+#ifndef CAMIONBRUN_H
+#define CAMIONBRUN_H
 
-class CamionBrun
+#include "Camion.h"
+#include "DechetTraiteCompostable.h"
+#include "Compteur.h"
+
+class CamionBrun :
+	public Camion
 {
 public:
 	CamionBrun();
+	CamionBrun(int _maxCapacite);
 	~CamionBrun();
-	bool ajouterDechet(DechetTraiteCompostable* dechetTraite);
+	bool ajouterDechetTraite(DechetTraiteCompostable* _dechetTraite);
 };
 
+#endif
